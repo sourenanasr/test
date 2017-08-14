@@ -1,0 +1,34 @@
+{
+  "name": "gemvision-website",
+  "description": "GemVision Website",
+  "private": true,
+  "author": "Arman Taherian",
+  "version": "0.0.1",
+  "repository": "https://github.com/AR-Development/gemvision-website",
+  "main": "server.js",
+  "scripts": {
+    "dev": "LOGGY_STACKS=true brunch watch --port 3333 --server",
+    "start": "node server.js",
+    "build": "brunch build --production"
+  },
+  "engines": {
+    "node": ">=0.12"
+  },
+  "dependencies": {
+    "jquery": "2.2.1",
+    "smoothstate": "^0.7.2"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^2",
+    "babel-brunch": "~6.0",
+    "babel-preset-latest": "^6",
+    "babel-preset-stage-0": "^6",
+    "brunch": "^2",
+    "eslint": "^3",
+    "eslint-config-airbnb-base": "^11",
+    "eslint-plugin-import": "^2",
+    "pleeease-brunch": "^3",
+    "sass-brunch": "^2",
+    "uglify-js-brunch": "^2"
+  }
+}
