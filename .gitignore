@@ -23,7 +23,6 @@ Thumbs.db
 node_modules/
 
 # Brunch output folder.
-public/
 
 # me
 _PSD/
