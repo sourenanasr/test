@@ -1,4 +1,5 @@
 @import '_reset';
+@import 'swiper.css';
 
 // Variables
 :root {
@@ -318,11 +319,67 @@ a {
   }
 }
 
+.swiper-container {
+  .swiper-wrapper {}
+
+  .swiper-pagination-bullets {
+    top: 10% !important;
+  }
+
+  .swiper-pagination {
+
+    .swiper-pagination-bullet {
+      background: #e1e1e1 !important;
+      position: relative;
+      margin-bottom: 1em !important;
+      width: .5em !important;
+      height: .5em !important;
+
+      i {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    i {
+      color: #7d7d7d;
+      display: block;
+      line-height: 16px;
+      font-size: 12px;
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 75px;
+      height: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transform: translate(-8px, -4px);
+      text-align: right;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--color-colorful) !important;
+      // transition: transform .4s linear;
+      transform: scale(1.5);
+
+      i {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
 .page {
   @at-root .main {
     article.section {
-      width: 70%;
+      width: 90%;
       margin: 0 auto;
+
+      @media (min-width: 53.75rem) {
+        width: 70%;
+      }
 
       .icon {
         margin-bottom: 2rem;
