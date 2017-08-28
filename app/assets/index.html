@@ -20,6 +20,19 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,500,700" rel="stylesheet" /> -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="css/app.css" />
+
+    <script type="text/javascript">
+      paceOptions = {
+        elements: false,
+        restartOnPushState: false,
+        restartOnRequestAfter: false,
+        ajax: false,
+        minTime: 5000,
+        ghostTime: 300
+      }
+    </script>
+    <script src="js/pace.min.js"></script>
+    <style type="text/css">.pace .pace-activity { display: none; }</style>
   </head>
 
   <body class="home" id="body">
@@ -131,9 +144,15 @@
       </div>
     </footer>
 
-    <div class="inside-loading">
+    <div class="first-loading">
+      <div class="logo-ing">
+        <img src="images/logo-ing.png">
+      </div>
 
+      <span>Loading...</span>
     </div>
+
+    <div class="inside-loading"></div>
 
     <script src="js/vendor.js"></script>
     <script src="js/app.js"></script>
