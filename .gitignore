@@ -5,6 +5,7 @@
 *.log
 *.rej
 *.swo
+*.map
 *.swp
 *.vi
 *~
