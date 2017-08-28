@@ -88,6 +88,14 @@ a {
 
   @at-root #{&}__logo {
     // background: rgba(255, 255, 255, .1);
+    @at-root .home & {
+      transform: translateY(-150%);
+      transition: transform .15s ease-in 1s;
+    }
+
+    @at-root .pace-done & {
+      transform: translateY(0%);
+    }
 
     h1 {
       a {
@@ -110,6 +118,13 @@ a {
     // background: rgba(255, 255, 255, .1);
 
     li {
+      @at-root .home & {
+        transform: translateY(-250%);
+        transition: transform .15s ease-in;
+      }
+
+      @at-root .pace-done & { transform: translateY(0%); }
+
       a {
         border-bottom: 1px solid transparent;
         display: block;
@@ -126,6 +141,14 @@ a {
         margin-right: 2em;
       }
     }
+
+    li:nth-child(1) { transition-delay: 1.20s; }
+    li:nth-child(2) { transition-delay: 1.35s; }
+    li:nth-child(3) { transition-delay: 1.50s; }
+    li:nth-child(4) { transition-delay: 1.65s; }
+    li:nth-child(5) { transition-delay: 1.80s; }
+    li:nth-child(6) { transition-delay: 1.95s; }
+    li:nth-child(7) { transition-delay: 2.10s; }
 
     .demo {
       a {
@@ -152,6 +175,13 @@ a {
     // top: 50%;
     // transform: translateY(-50%);
     width: 100%;
+
+    @at-root .home & {
+      opacity: 0;
+      transition: opacity .15s ease-in .80s;
+    }
+
+    @at-root .pace-done & { opacity: 1; }
 
     .section {
     }
@@ -323,7 +353,7 @@ a {
   .swiper-wrapper {}
 
   .swiper-pagination-bullets {
-    top: 10% !important;
+    top: 15% !important;
   }
 
   .swiper-pagination {
@@ -463,6 +493,13 @@ a {
   justify-content: center;
   align-items: center;
 
+  @at-root .home & {
+    transform: translateY(100%);
+    transition: transform .15s ease-in 2.25s;
+  }
+
+  @at-root .pace-done & { transform: translateY(0%); }
+
   a {
     color: var(--color-link);
   }
@@ -509,11 +546,71 @@ a {
   opacity: 0;
   visibility: hidden;
   z-index: 5;
-  transition: visibility .1s linear, opacity .15s linear, transform .35s ease-in;
+  transition: visibility .1s linear, opacity .2s linear, transform .5s ease-in;
 
   @at-root .is-showing-inside-loading & {
-    transform: scale(50);
+    transform: scale(50) translateX(10%);
     opacity: 1;
     visibility: visible;
   }
+}
+
+.first-loading {
+  background: #fff;
+  color: #333;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all .2s ease-in .35s;
+
+  @at-root .home & {
+    display: flex;
+  }
+
+  span {
+    -webkit-animation: flash linear 1s infinite;
+    animation: flash linear 1s infinite;
+  }
+
+  @-webkit-keyframes flash {
+    0%   { opacity: 1;  }
+    50%  { opacity: .1; }
+    100% { opacity: 1;  }
+  }
+  @keyframes flash {
+    0%   { opacity: 1;  }
+    50%  { opacity: .1; }
+    100% { opacity: 1;  }
+  }
+
+  .logo-ing {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    max-width: 20%;
+    transition: transform .25s ease-in;
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+
+  @at-root .pace-done & {
+    opacity: 0;
+    visibility: hidden;
+
+    .logo-ing {
+      transform: translate(-100%, -50%);
+    }
+  }
+
 }

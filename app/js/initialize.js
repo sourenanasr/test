@@ -101,7 +101,6 @@ const firePageVerticalSlider = () => {
       hashnav: true,
       hashnavWatchState: true,
       paginationBulletRender: (swiper, index, className) => {
-        console.log(swiper)
         return '<span class="' + className + '"><i>' + $sliderItems.eq(index).data('title') + '</i></span>';
       }
     });
@@ -133,6 +132,7 @@ $(() => {
       render: function ($container, $newContent) {
         $$body.removeClass('is-exiting');
         $$body.removeClass('is-showing-inside-loading');
+        // $$body.addClass('pace-done');
         $body.className = $($newContent[0]).attr('data-body');
         $container.html($newContent);
         firePageVerticalSlider();
