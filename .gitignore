@@ -27,3 +27,5 @@ node_modules/
 
 # me
 _PSD/
+*.map
+
