@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('initialized');
 
   // Initialize Variables
+  const $$body = $('body');
   windowSize = { w: getWindowWidth(),         h: getWindowHeight() }
   mainSize   = { w: getElementWidth($main),   h: getElementHeight($main) };
   headerSize = { w: getElementWidth($header), h: getElementHeight($header) };
@@ -37,6 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load Plugins
   firePageVerticalSlider();
+
+  // Event Listeners
+  $('a[href="#demo"]').on('click', e => {
+    e.preventDefault();
+
+    if ($$body.hasClass('is-openLb')) {
+      $$body.removeClass('is-openLb');
+    } else {
+      $$body.addClass('is-openLb');
+    }
+  });
 });
 
 //
