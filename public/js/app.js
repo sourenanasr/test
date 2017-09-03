@@ -275,6 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
   console.log('initialized');
 
   // Initialize Variables
+  var $$body = $('body');
   windowSize = { w: (0, _Window.getWindowWidth)(), h: (0, _Window.getWindowHeight)() };
   mainSize = { w: (0, _Window.getElementWidth)($main), h: (0, _Window.getElementHeight)($main) };
   headerSize = { w: (0, _Window.getElementWidth)($header), h: (0, _Window.getElementHeight)($header) };
@@ -288,6 +289,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Load Plugins
   firePageVerticalSlider();
+
+  // Event Listeners
+  $('a[href="#demo"]').on('click', function (e) {
+    e.preventDefault();
+
+    if ($$body.hasClass('is-openLb')) {
+      $$body.removeClass('is-openLb');
+    } else {
+      $$body.addClass('is-openLb');
+    }
+  });
 });
 
 //
