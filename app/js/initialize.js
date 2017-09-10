@@ -90,6 +90,7 @@ const setLoadingIndicatorPositionAndSize = () => {
 }
 
 const firePageVerticalSlider = () => {
+  return;
   let $sliderContainer = $('.swiper-container');
   let $sliderItems     = $('.swiper-slide');
   let maxHeight        = 0;

@@ -340,6 +340,7 @@ var setLoadingIndicatorPositionAndSize = function setLoadingIndicatorPositionAnd
 };
 
 var firePageVerticalSlider = function firePageVerticalSlider() {
+  return;
   var $sliderContainer = $('.swiper-container');
   var $sliderItems = $('.swiper-slide');
   var maxHeight = 0;
