@@ -410,34 +410,62 @@ a {
 .page {
   @at-root .main {
     article.section {
-      width: 90%;
-      margin: 0 auto;
+      // width: 90%;
+      // margin: 0 auto;
 
       @media (min-width: 53.75rem) {
-        width: 70%;
+        // width: 70%;
       }
 
-      .icon {
-        margin-bottom: 2rem;
+      .image {
+        background: rgba(0, 0, 0, .1);
+        position: relative;
+        margin-right: -50px;
+        width: 50%;
+        float: left;
+        overflow: hidden;
+
+        &::after {
+          background: #fff;
+          content: '';
+          position: absolute;
+          top: 0;
+          right: -50px;
+          width: 100px;
+          height: 100%;
+          transform: rotate(-18deg) scale(1.5);
+        }
 
         img {
           display: block;
-          width: 75px;
-          height: 75px;
+          width: 100%;
+          height: auto;
         }
       }
 
       header {
+        position: relative;
+        padding: 1px;
+
         h3 {
           font-size: 2em;
-          margin-bottom: 2rem;
+          font-weight: bold;
+          margin-top: 2em;
+          // margin-bottom: 2rem;
         }
       }
 
       .entry {
-        margin-bottom: 2em;
+        background: rgba(255, 255, 255, .97);
+        float: left;
+        border-radius: 1em;
+        position: relative;
+        width: 60%;
+        min-height: 280px;
 
         p {
+          font-size: 1.1em;
+
           &:not(:last-child) {
             margin-bottom: 1em;
           }
@@ -484,6 +512,16 @@ a {
             width: 0;
             height: 0;
           }
+        }
+      }
+
+      &.section--w-image {
+        .entry {
+          padding: 2em;
+          margin-top: 4em;
+          margin-left: -6em;
+          width: 45%;
+          backdrop-filter: blur(5px);
         }
       }
     }
