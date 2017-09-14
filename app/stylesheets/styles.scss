@@ -487,7 +487,7 @@ a {
         border-radius: 1em;
         position: relative;
         width: 60%;
-        min-height: 280px;
+        // min-height: 280px;
 
         p {
           font-size: 1.1em;
@@ -544,10 +544,10 @@ a {
       &.section--w-image {
         .entry {
           padding: 2em;
-          margin-top: 4em;
+          margin-top: 1em;
           margin-left: -6em;
-          width: 45%;
-          backdrop-filter: blur(5px);
+          width: 55%;
+          // backdrop-filter: blur(5px);
         }
       }
     }
