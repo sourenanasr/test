@@ -251,14 +251,16 @@ var _smoothstate = require('smoothstate');
 
 var _smoothstate2 = _interopRequireDefault(_smoothstate);
 
-var _swiper2 = require('swiper');
+var _fullpage = require('fullpage.js');
 
-var _swiper3 = _interopRequireDefault(_swiper2);
+var _fullpage2 = _interopRequireDefault(_fullpage);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Elements
 var $body = document.getElementsByTagName("body")[0];
+// import swiper from 'swiper';
+
 var $main = document.getElementById("main");
 var $header = document.getElementById("header");
 var $footer = document.getElementById("footer");
@@ -313,7 +315,7 @@ window.addEventListener('resize', (0, _Throttle.throttle)(function (event) {
  *
  */
 var setBackgroungHeight = function setBackgroungHeight() {
-  var currentH = mainSize.h + headerSize.h + footerSize.h;
+  var currentH = mainSize.h + footerSize.h;
 
   if (currentH < windowSize.h) {
     var extraSize = windowSize.h - currentH;
@@ -340,34 +342,12 @@ var setLoadingIndicatorPositionAndSize = function setLoadingIndicatorPositionAnd
 };
 
 var firePageVerticalSlider = function firePageVerticalSlider() {
-  return;
-  var $sliderContainer = $('.swiper-container');
-  var $sliderItems = $('.swiper-slide');
-  var maxHeight = 0;
-
-  $sliderItems.map(function (i, e) {
-    if ($(e).outerHeight() > maxHeight) maxHeight = $(e).outerHeight();
+  // https://github.com/alvarotrigo/fullPage.js
+  $('#fullpage').fullpage({
+    // scrollingSpeed: 1000,
+    verticalCentered: false
+    // fixedElements: '#header'
   });
-
-  if ($sliderContainer.length) {
-    $sliderContainer.height(maxHeight);
-
-    var _swiper = new Swiper('.swiper-container', {
-      pagination: '.swiper-pagination',
-      direction: 'vertical',
-      speed: 500,
-      spaceBetween: 100,
-      keyboardControl: true,
-      mousewheelControl: true,
-      slidesPerView: 1,
-      paginationClickable: true,
-      hashnav: true,
-      hashnavWatchState: true,
-      paginationBulletRender: function paginationBulletRender(swiper, index, className) {
-        return '<span class="' + className + '"><i>' + $sliderItems.eq(index).data('title') + '</i></span>';
-      }
-    });
-  }
 };
 
 // Handle Loading

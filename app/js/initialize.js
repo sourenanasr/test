@@ -4,7 +4,8 @@ import { getWindowWidth, getWindowHeight,
          getElementWidth, getElementHeight } from './general/Window.js';
 import { throttle} from './general/Throttle.js';
 import smoothstate from 'smoothstate';
-import swiper from 'swiper';
+// import swiper from 'swiper';
+import fullpage from 'fullpage.js';
 
 // Elements
 const $body       = document.getElementsByTagName("body")[0];
@@ -63,7 +64,7 @@ window.addEventListener('resize', throttle(function(event) {
  *
  */
 const setBackgroungHeight = () => {
-  var currentH = mainSize.h + headerSize.h + footerSize.h;
+  var currentH = mainSize.h + footerSize.h;
 
   if (currentH < windowSize.h) {
     var extraSize = windowSize.h - currentH;
@@ -90,34 +91,12 @@ const setLoadingIndicatorPositionAndSize = () => {
 }
 
 const firePageVerticalSlider = () => {
-  return;
-  let $sliderContainer = $('.swiper-container');
-  let $sliderItems     = $('.swiper-slide');
-  let maxHeight        = 0;
-
-  $sliderItems.map((i, e) => {
-    if ($(e).outerHeight() > maxHeight) maxHeight = $(e).outerHeight();
-  })
-
-  if ($sliderContainer.length) {
-    $sliderContainer.height(maxHeight);
-
-    let swiper = new Swiper('.swiper-container', {
-      pagination: '.swiper-pagination',
-      direction: 'vertical',
-      speed: 500,
-      spaceBetween: 100,
-      keyboardControl: true,
-      mousewheelControl: true,
-      slidesPerView: 1,
-      paginationClickable: true,
-      hashnav: true,
-      hashnavWatchState: true,
-      paginationBulletRender: (swiper, index, className) => {
-        return '<span class="' + className + '"><i>' + $sliderItems.eq(index).data('title') + '</i></span>';
-      }
-    });
-  }
+  // https://github.com/alvarotrigo/fullPage.js
+  $('#fullpage').fullpage({
+    // scrollingSpeed: 1000,
+    verticalCentered: false,
+    // fixedElements: '#header'
+  });
 }
 
 
