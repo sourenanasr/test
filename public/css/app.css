@@ -659,7 +659,7 @@ a {
   a:hover {
     color: var(--color-link-hover); }
 
-.container {
+.container, .main.flex--main {
   width: 90%;
   min-width: 800px;
   max-width: 1280px;

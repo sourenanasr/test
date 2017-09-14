@@ -189,9 +189,7 @@ a {
   // flex: 1;
 
   &.flex--main {
-    // position: absolute;
-    // top: 50%;
-    // transform: translateY(-50%);
+    @extend .container;
     width: 100%;
 
     @at-root .home & {
