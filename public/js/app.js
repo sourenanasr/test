@@ -313,7 +313,7 @@ window.addEventListener('resize', (0, _Throttle.throttle)(function (event) {
  *
  */
 var setBackgroungHeight = function setBackgroungHeight() {
-  var currentH = mainSize.h + footerSize.h;
+  var currentH = mainSize.h;
 
   if (currentH < windowSize.h) {
     var extraSize = windowSize.h - currentH;
