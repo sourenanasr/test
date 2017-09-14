@@ -259,8 +259,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // Elements
 var $body = document.getElementsByTagName("body")[0];
-// import swiper from 'swiper';
-
 var $main = document.getElementById("main");
 var $header = document.getElementById("header");
 var $footer = document.getElementById("footer");

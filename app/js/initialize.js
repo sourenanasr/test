@@ -4,7 +4,6 @@ import { getWindowWidth, getWindowHeight,
          getElementWidth, getElementHeight } from './general/Window.js';
 import { throttle} from './general/Throttle.js';
 import smoothstate from 'smoothstate';
-// import swiper from 'swiper';
 import fullpage from 'fullpage.js';
 
 // Elements
