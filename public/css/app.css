@@ -689,6 +689,7 @@ a {
   *zoom: 1; }
 
 .header {
+  background: var(--color-body-backgroud);
   line-height: 40px;
   padding-top: 2em;
   position: fixed;
@@ -971,6 +972,7 @@ a {
     width: 55%; }
 
 .footer {
+  background: var(--color-body-backgroud);
   font-size: var(--font-size-small);
   line-height: 4em;
   display: flex;

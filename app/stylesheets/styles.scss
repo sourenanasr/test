@@ -90,7 +90,7 @@ a {
 .clearfix { *zoom: 1; }
 
 .header {
-  // background: var(--color-body-backgroud);
+  background: var(--color-body-backgroud);
   // background: rgba(255, 255, 255, .1);
   line-height: 40px;
   padding-top: 2em;
@@ -555,6 +555,7 @@ a {
 }
 
 .footer {
+  background: var(--color-body-backgroud);
   // background: rgba(255, 255, 255, .3);
   font-size: var(--font-size-small);
   line-height: 4em;
