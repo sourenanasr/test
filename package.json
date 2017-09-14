@@ -16,9 +16,9 @@
   },
   "dependencies": {
     "express": "^4.15.4",
+    "fullpage.js": "^2.9.4",
     "jquery": "2.2.1",
-    "smoothstate": "^0.7.2",
-    "swiper": "^3.4.2"
+    "smoothstate": "^0.7.2"
   },
   "devDependencies": {
     "auto-reload-brunch": "^2",
