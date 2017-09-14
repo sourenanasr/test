@@ -642,7 +642,7 @@ body {
   background: var(--color-body-backgroud);
   color: var(--color-text);
   font-family: 'Raleway', sans-serif;
-  font-size: 1em;
+  font-size: 1.125em;
   font-weight: 300;
   line-height: 1.618;
   position: relative; }
