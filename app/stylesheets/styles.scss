@@ -759,6 +759,7 @@ a {
   }
 
   .logo-ing {
+    // background: rgba(0, 0, 0, .1);
     position: absolute;
     left: 0;
     top: 50%;
@@ -766,9 +767,11 @@ a {
     max-width: 20%;
     transition: transform .25s ease-in;
 
-    img {
+    img, svg {
       display: block;
       max-width: 100%;
+      width: 470px;
+      // height: 235px;
     }
   }
 
@@ -780,4 +783,17 @@ a {
       transform: translate(-100%, -50%);
     }
   }
+}
+
+.blink-animation {
+  backface-visibility: hidden !important;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  animation: flipInX 2s infinite;
+}
+
+@keyframes flipInX {
+  15% { transform: rotateX(0deg);   }
+  20% { transform: rotateX(-85deg); }
+  25% { transform: rotateX(0deg);   }
 }
