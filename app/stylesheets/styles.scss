@@ -434,10 +434,17 @@ a {
     article.section {
       // background: rgba(0, 0, 0, .1);
       // border: 2px solid red;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       // height: 60vh;
+
+      &.fp-section {
+        transition: opacity .2s ease-out;
+        opacity: 0;
+      }
+
+      &.fp-section.active {
+        transition: opacity .5s ease-in .4s;
+        opacity: 1;
+      }
 
       @media (min-width: 53.75rem) {
         // width: 70%;
@@ -542,6 +549,10 @@ a {
       }
 
       &.section--w-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         .entry {
           padding: 2em;
           margin-top: 1em;
