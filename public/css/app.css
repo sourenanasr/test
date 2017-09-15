@@ -892,79 +892,91 @@ a {
     opacity: 1;
     visibility: visible; }
 
-.main article.section {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-  .main article.section .image {
+.main article.section.fp-section {
+  transition: opacity .2s ease-out;
+  opacity: 0; }
+
+.main article.section.fp-section.active {
+  transition: opacity .5s ease-in .4s;
+  opacity: 1; }
+
+.main article.section .image {
+  background: rgba(0, 0, 0, 0.1);
+  position: relative;
+  margin-right: -50px;
+  width: 50%;
+  float: left;
+  overflow: hidden; }
+  .main article.section .image::after {
+    background: #fff;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 100px;
+    height: 100%;
+    transform: rotate(-18deg) scale(1.5); }
+  .main article.section .image img {
+    display: block;
+    width: 100%;
+    height: auto; }
+
+.main article.section header {
+  position: relative;
+  padding: 1px; }
+  .main article.section header h3 {
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 2em; }
+
+.main article.section .entry {
+  background: rgba(255, 255, 255, 0.97);
+  float: left;
+  border-radius: 1em;
+  position: relative;
+  width: 60%; }
+  .main article.section .entry p {
+    font-size: 1.1em; }
+    .main article.section .entry p:not(:last-child) {
+      margin-bottom: 1em; }
+
+.main article.section .video {
+  position: relative; }
+  .main article.section .video a {
     background: rgba(0, 0, 0, 0.1);
+    display: block;
     position: relative;
-    margin-right: -50px;
-    width: 50%;
-    float: left;
-    overflow: hidden; }
-    .main article.section .image::after {
-      background: #fff;
+    width: 195px; }
+  .main article.section .video img {
+    display: block;
+    width: 100%; }
+  .main article.section .video .btn-play {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 38px;
+    height: 38px;
+    transform: translate(-50%, -50%); }
+    .main article.section .video .btn-play::after {
+      background: transparent;
+      border: 8px solid transparent;
+      border-right: none;
+      border-left-color: #fff;
       content: '';
-      position: absolute;
-      top: 0;
-      right: -50px;
-      width: 100px;
-      height: 100%;
-      transform: rotate(-18deg) scale(1.5); }
-    .main article.section .image img {
-      display: block;
-      width: 100%;
-      height: auto; }
-  .main article.section header {
-    position: relative;
-    padding: 1px; }
-    .main article.section header h3 {
-      font-size: 2em;
-      font-weight: bold;
-      margin-top: 2em; }
-  .main article.section .entry {
-    background: rgba(255, 255, 255, 0.97);
-    float: left;
-    border-radius: 1em;
-    position: relative;
-    width: 60%; }
-    .main article.section .entry p {
-      font-size: 1.1em; }
-      .main article.section .entry p:not(:last-child) {
-        margin-bottom: 1em; }
-  .main article.section .video {
-    position: relative; }
-    .main article.section .video a {
-      background: rgba(0, 0, 0, 0.1);
-      display: block;
-      position: relative;
-      width: 195px; }
-    .main article.section .video img {
-      display: block;
-      width: 100%; }
-    .main article.section .video .btn-play {
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 50%;
-      display: block;
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 38px;
-      height: 38px;
-      transform: translate(-50%, -50%); }
-      .main article.section .video .btn-play::after {
-        background: transparent;
-        border: 8px solid transparent;
-        border-right: none;
-        border-left-color: #fff;
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 0;
-        height: 0; }
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 0; }
+
+.main article.section.section--w-image {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
   .main article.section.section--w-image .entry {
     padding: 2em;
     margin-top: 1em;
