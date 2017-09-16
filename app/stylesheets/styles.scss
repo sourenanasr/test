@@ -184,28 +184,28 @@ a {
 }
 
 .main {
-  // background: rgba(50, 0, 100, .4);
   position: relative;
-  // flex: 1;
 
   &.flex--main {
     @extend .container;
     width: 100%;
+    overflow: hidden;
 
-    @at-root .home & {
-      opacity: 0;
-      transition: opacity .15s ease-in .80s;
-    }
-
-    @at-root .pace-done & { opacity: 1; }
-
-    .section {
-    }
+    .section {}
   }
 
   .gem {
     width: 33%;
     z-index: 2;
+
+    // opacity: 0;
+    transform: translateX(-100%);
+    transition: transform .25s ease-out .8s;
+
+    @at-root .pace-done & {
+      transform: translateX(0);
+      // opacity: 1;
+    }
   }
 
   .lines {
@@ -221,32 +221,27 @@ a {
   }
 
   .article {
-    * {
-      transition: all .15s ease-out;
+    opacity: 0;
+    transition: opacity .2s ease-out;
+
+    * { transition: all .15s ease-out; }
+
+    .line2 {
+      fill: transparent;
+      stroke-width: 1;
+      stroke: #868686;
+      transition-duration: .3s;
     }
 
-    .line {
-      fill: #868686;
-    }
-
-    .circle-big {
-      fill: #868686;
-    }
-
-    .circle-small {
-      fill: #121212;
-    }
+    .circle-big   { fill: #868686; }
+    .circle-small { fill: #121212; }
 
     .text,
     .text-sub {
       fill: #898989;
-
-      a { fill: inherit; }
     }
 
-    .text {
-      font-size: 15px;
-    }
+    .text { font-size: 15px; }
 
     .text-sub {
       font-size: 8px;
@@ -267,52 +262,110 @@ a {
       }
 
       .c-rect {
-        fill: none;
-        stroke: none;
+        fill: #121212;
+        stroke: #121212;
       }
     }
 
-    &:hover {
-      .line {
-        fill: #1CBBB4;
-      }
+    @at-root .pace-done & {
+      opacity: 1;
+    }
 
-      .circle-big {
-        fill: #1CBBB4;
-      }
+    .text:hover {
+      cursor: pointer;
+      fill: #fff;
 
-      .circle-small {
-        fill: #1CBBB4;
-      }
-
-      .text {
-        cursor: pointer;
-        fill: #fff;
-      }
-
-      .text-sub {
-        cursor: pointer;
+      & ~ .text-sub {
         fill: #a9a9a9;
         opacity: 1;
       }
 
-      .c-g {
+      & ~ .line2 {
+        // animation: dash .2s linear forwards !important;
+        // animation-play-state: pause;
+        // fill: transparent;
+        stroke: #1CBBB4;
+        stroke-dashoffset: 320;
+      }
+
+      & ~ .circle-big   {
+        transition-delay: .2s;
+        fill: #1CBBB4;
+      }
+
+      & ~ .circle-small {
+        transition-delay: .2s;
+        fill: #1CBBB4;
+      }
+
+      & ~ .c-g {
+        transition-delay: .35s;
         transform: rotate(180deg);
 
         .c-path {
+          transition-delay: .3s;
           stroke: #1CBBB4;
         }
-
         .c-circle {
+          transition-delay: .3s;
           fill: #1CBBB4;
         }
 
         .c-rect {
+          transition-delay: .3s;
           fill: #1CBBB4;
           stroke: #1CBBB4;
         }
       }
+    }
+  }
 
+  .line {
+    fill: #868686;
+    fill: transparent;
+    stroke-width: 1;
+    stroke: #868686;
+    transition: all .3s linear;
+
+    @at-root .pace-done & {
+      transition-duration: .5s;
+      stroke-dashoffset: 320;
+    }
+  }
+
+  .g1-line {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+
+    @at-root .pace-done & {
+      transition-delay: 1.3s;
+    }
+  }
+
+  .g2-line {
+    stroke-dasharray: 465;
+    stroke-dashoffset: 465;
+
+    @at-root .pace-done & {
+      transition-delay: 1.5s;
+    }
+  }
+
+  .g3-line {
+    stroke-dasharray: 465;
+    stroke-dashoffset: 465;
+
+    @at-root .pace-done & {
+      transition-delay: 1.7s;
+    }
+  }
+
+  .g4-line {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+
+    @at-root .pace-done & {
+      transition-delay: 1.9s;
     }
   }
 
@@ -320,114 +373,79 @@ a {
     .text     { transform: matrix(1, 0, 0, 1, 180, 25); }
     .text-sub { transform: matrix(1, 0, 0, 1, 180, 42); }
 
-    &:hover {
-      .text     { transform: matrix(1, 0, 0, 1, 180, 20); }
-      .text-sub { transform: matrix(1, 0, 0, 1, 180, 35); }
+    @at-root .pace-done & {
+      transition-delay: 1.8s;
     }
+
+    .line2 {
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+    }
+
+    // &:hover {
+    //   .text     { transform: matrix(1, 0, 0, 1, 180, 20); }
+    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 35); }
+    // }
   }
 
   .g2 {
     .text     { transform: matrix(1, 0, 0, 1, 180, 88); }
     .text-sub { transform: matrix(1, 0, 0, 1, 180, 105); }
 
-    &:hover {
-      .text     { transform: matrix(1, 0, 0, 1, 180, 85); }
-      .text-sub { transform: matrix(1, 0, 0, 1, 180, 98); }
+    @at-root .pace-done & {
+      transition-delay: 2.0s;
     }
+
+    .line2 {
+      stroke-dasharray: 465;
+      stroke-dashoffset: 465;
+    }
+
+    // &:hover {
+    //   .text     { transform: matrix(1, 0, 0, 1, 180, 85); }
+    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 98); }
+    // }
   }
 
   .g3 {
     .text     { transform: matrix(1, 0, 0, 1, 180, 160); }
     .text-sub { transform: matrix(1, 0, 0, 1, 180, 176); }
 
-    &:hover {
-      .text     { transform: matrix(1, 0, 0, 1, 180, 155); }
-      .text-sub { transform: matrix(1, 0, 0, 1, 180, 168); }
+    @at-root .pace-done & {
+      transition-delay: 2.2s;
     }
+
+    .line2 {
+      // animation-direction: alternate-reverse;
+      stroke-dasharray: 465;
+      stroke-dashoffset: 465;
+    }
+
+    // &:hover {
+    //   .text     { transform: matrix(1, 0, 0, 1, 180, 155); }
+    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 168); }
+    // }
   }
 
   .g4 {
     .text     { transform: matrix(1, 0, 0, 1, 180, 224); }
     .text-sub { transform: matrix(1, 0, 0, 1, 180, 238); }
 
-    &:hover {
-      .text     { transform: matrix(1, 0, 0, 1, 180, 217); }
-      .text-sub { transform: matrix(1, 0, 0, 1, 180, 231); }
-    }
-  }
-
-  .titles {
-    // background: rgba(0, 0, 0, .051);
-    // border: 1px solid #fff;
-    // flex: 2;
-    // width: 50%;
-    // z-index: 3;
-  }
-}
-
-.swiper-container {
-  .swiper-wrapper {}
-
-  .swiper-pagination-bullets {
-    top: 15% !important;
-  }
-
-  .swiper-pagination {
-
-    .swiper-pagination-bullet {
-      background: #e1e1e1 !important;
-      position: relative;
-      margin-bottom: 1em !important;
-      width: .5em !important;
-      height: .5em !important;
-
-      i {
-        opacity: 0;
-        visibility: hidden;
-      }
+    @at-root .pace-done & {
+      transition-delay: 2.4s;
     }
 
-    i {
-      color: #7d7d7d;
-      display: block;
-      line-height: 16px;
-      font-size: 12px;
-      position: absolute;
-      top: 0;
-      right: 100%;
-      width: 75px;
-      height: 16px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      transform: translate(-8px, -4px);
-      text-align: right;
+    .line2 {
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
     }
 
-    .swiper-pagination-bullet-active {
-      background: var(--color-colorful) !important;
-      // transition: transform .4s linear;
-      transform: scale(1.5);
-
-      i {
-        opacity: 1;
-        visibility: visible;
-      }
-    }
+    // &:hover {
+    //   .text     { transform: matrix(1, 0, 0, 1, 180, 217); }
+    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 231); }
+    // }
   }
 }
-
-// .fp-section.fp-table, .fp-slide.fp-table {
-//     display: table !important;
-//     table-layout: fixed !important;
-// }
-
-// .fp-tableCell {
-//     display: table-cell !important;
-//     vertical-align: middle !important;
-//     width: 100%;
-//     height: 100%;
-// }
 
 .page {
   @at-root .main {

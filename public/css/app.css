@@ -754,15 +754,15 @@ a {
 .main {
   position: relative; }
   .main.flex--main {
-    width: 100%; }
-    .home .main.flex--main {
-      opacity: 0;
-      transition: opacity .15s ease-in .80s; }
-    .pace-done .main.flex--main {
-      opacity: 1; }
+    width: 100%;
+    overflow: hidden; }
   .main .gem {
     width: 33%;
-    z-index: 2; }
+    z-index: 2;
+    transform: translateX(-100%);
+    transition: transform .25s ease-out .8s; }
+    .pace-done .main .gem {
+      transform: translateX(0); }
   .main .lines {
     width: 17%;
     width: 67%;
@@ -771,126 +771,134 @@ a {
       position: relative;
       top: -2px;
       left: -4px; }
-  .main .article * {
-    transition: all .15s ease-out; }
-  .main .article .line {
-    fill: #868686; }
-  .main .article .circle-big {
-    fill: #868686; }
-  .main .article .circle-small {
-    fill: #121212; }
-  .main .article .text,
-  .main .article .text-sub {
-    fill: #898989; }
-    .main .article .text a,
-    .main .article .text-sub a {
-      fill: inherit; }
-  .main .article .text {
-    font-size: 15px; }
-  .main .article .text-sub {
-    font-size: 8px;
-    opacity: 0; }
-  .main .article .c-g {
-    transform-origin: 60% 50%; }
-    .main .article .c-g .c-path {
-      fill: none;
-      stroke: #868686; }
-    .main .article .c-g .c-circle {
-      fill: #868686;
-      stroke: none; }
-    .main .article .c-g .c-rect {
-      fill: none;
-      stroke: none; }
-  .main .article:hover .line {
-    fill: #1CBBB4; }
-  .main .article:hover .circle-big {
-    fill: #1CBBB4; }
-  .main .article:hover .circle-small {
-    fill: #1CBBB4; }
-  .main .article:hover .text {
-    cursor: pointer;
-    fill: #fff; }
-  .main .article:hover .text-sub {
-    cursor: pointer;
-    fill: #a9a9a9;
-    opacity: 1; }
-  .main .article:hover .c-g {
-    transform: rotate(180deg); }
-    .main .article:hover .c-g .c-path {
-      stroke: #1CBBB4; }
-    .main .article:hover .c-g .c-circle {
-      fill: #1CBBB4; }
-    .main .article:hover .c-g .c-rect {
-      fill: #1CBBB4;
-      stroke: #1CBBB4; }
+  .main .article {
+    opacity: 0;
+    transition: opacity .2s ease-out; }
+    .main .article * {
+      transition: all .15s ease-out; }
+    .main .article .line2 {
+      fill: transparent;
+      stroke-width: 1;
+      stroke: #868686;
+      transition-duration: .3s; }
+    .main .article .circle-big {
+      fill: #868686; }
+    .main .article .circle-small {
+      fill: #121212; }
+    .main .article .text,
+    .main .article .text-sub {
+      fill: #898989; }
+    .main .article .text {
+      font-size: 15px; }
+    .main .article .text-sub {
+      font-size: 8px;
+      opacity: 0; }
+    .main .article .c-g {
+      transform-origin: 60% 50%; }
+      .main .article .c-g .c-path {
+        fill: none;
+        stroke: #868686; }
+      .main .article .c-g .c-circle {
+        fill: #868686;
+        stroke: none; }
+      .main .article .c-g .c-rect {
+        fill: #121212;
+        stroke: #121212; }
+    .pace-done .main .article {
+      opacity: 1; }
+    .main .article .text:hover {
+      cursor: pointer;
+      fill: #fff; }
+      .main .article .text:hover ~ .text-sub {
+        fill: #a9a9a9;
+        opacity: 1; }
+      .main .article .text:hover ~ .line2 {
+        stroke: #1CBBB4;
+        stroke-dashoffset: 320; }
+      .main .article .text:hover ~ .circle-big {
+        transition-delay: .2s;
+        fill: #1CBBB4; }
+      .main .article .text:hover ~ .circle-small {
+        transition-delay: .2s;
+        fill: #1CBBB4; }
+      .main .article .text:hover ~ .c-g {
+        transition-delay: .35s;
+        transform: rotate(180deg); }
+        .main .article .text:hover ~ .c-g .c-path {
+          transition-delay: .3s;
+          stroke: #1CBBB4; }
+        .main .article .text:hover ~ .c-g .c-circle {
+          transition-delay: .3s;
+          fill: #1CBBB4; }
+        .main .article .text:hover ~ .c-g .c-rect {
+          transition-delay: .3s;
+          fill: #1CBBB4;
+          stroke: #1CBBB4; }
+  .main .line {
+    fill: #868686;
+    fill: transparent;
+    stroke-width: 1;
+    stroke: #868686;
+    transition: all .3s linear; }
+    .pace-done .main .line {
+      transition-duration: .5s;
+      stroke-dashoffset: 320; }
+  .main .g1-line {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500; }
+    .pace-done .main .g1-line {
+      transition-delay: 1.3s; }
+  .main .g2-line {
+    stroke-dasharray: 465;
+    stroke-dashoffset: 465; }
+    .pace-done .main .g2-line {
+      transition-delay: 1.5s; }
+  .main .g3-line {
+    stroke-dasharray: 465;
+    stroke-dashoffset: 465; }
+    .pace-done .main .g3-line {
+      transition-delay: 1.7s; }
+  .main .g4-line {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500; }
+    .pace-done .main .g4-line {
+      transition-delay: 1.9s; }
   .main .g1 .text {
     transform: matrix(1, 0, 0, 1, 180, 25); }
   .main .g1 .text-sub {
     transform: matrix(1, 0, 0, 1, 180, 42); }
-  .main .g1:hover .text {
-    transform: matrix(1, 0, 0, 1, 180, 20); }
-  .main .g1:hover .text-sub {
-    transform: matrix(1, 0, 0, 1, 180, 35); }
+  .pace-done .main .g1 {
+    transition-delay: 1.8s; }
+  .main .g1 .line2 {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500; }
   .main .g2 .text {
     transform: matrix(1, 0, 0, 1, 180, 88); }
   .main .g2 .text-sub {
     transform: matrix(1, 0, 0, 1, 180, 105); }
-  .main .g2:hover .text {
-    transform: matrix(1, 0, 0, 1, 180, 85); }
-  .main .g2:hover .text-sub {
-    transform: matrix(1, 0, 0, 1, 180, 98); }
+  .pace-done .main .g2 {
+    transition-delay: 2.0s; }
+  .main .g2 .line2 {
+    stroke-dasharray: 465;
+    stroke-dashoffset: 465; }
   .main .g3 .text {
     transform: matrix(1, 0, 0, 1, 180, 160); }
   .main .g3 .text-sub {
     transform: matrix(1, 0, 0, 1, 180, 176); }
-  .main .g3:hover .text {
-    transform: matrix(1, 0, 0, 1, 180, 155); }
-  .main .g3:hover .text-sub {
-    transform: matrix(1, 0, 0, 1, 180, 168); }
+  .pace-done .main .g3 {
+    transition-delay: 2.2s; }
+  .main .g3 .line2 {
+    stroke-dasharray: 465;
+    stroke-dashoffset: 465; }
   .main .g4 .text {
     transform: matrix(1, 0, 0, 1, 180, 224); }
   .main .g4 .text-sub {
     transform: matrix(1, 0, 0, 1, 180, 238); }
-  .main .g4:hover .text {
-    transform: matrix(1, 0, 0, 1, 180, 217); }
-  .main .g4:hover .text-sub {
-    transform: matrix(1, 0, 0, 1, 180, 231); }
-
-.swiper-container .swiper-pagination-bullets {
-  top: 15% !important; }
-
-.swiper-container .swiper-pagination .swiper-pagination-bullet {
-  background: #e1e1e1 !important;
-  position: relative;
-  margin-bottom: 1em !important;
-  width: .5em !important;
-  height: .5em !important; }
-  .swiper-container .swiper-pagination .swiper-pagination-bullet i {
-    opacity: 0;
-    visibility: hidden; }
-
-.swiper-container .swiper-pagination i {
-  color: #7d7d7d;
-  display: block;
-  line-height: 16px;
-  font-size: 12px;
-  position: absolute;
-  top: 0;
-  right: 100%;
-  width: 75px;
-  height: 16px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  transform: translate(-8px, -4px);
-  text-align: right; }
-
-.swiper-container .swiper-pagination .swiper-pagination-bullet-active {
-  background: var(--color-colorful) !important;
-  transform: scale(1.5); }
-  .swiper-container .swiper-pagination .swiper-pagination-bullet-active i {
-    opacity: 1;
-    visibility: visible; }
+  .pace-done .main .g4 {
+    transition-delay: 2.4s; }
+  .main .g4 .line2 {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500; }
 
 .main article.section.fp-section {
   transition: opacity .2s ease-out;
