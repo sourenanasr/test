@@ -135,7 +135,7 @@ $(() => {
         $$body.removeClass('is-exiting');
         $$body.removeClass('is-showing-inside-loading');
         // $$body.addClass('pace-done');
-        $body.className = $($newContent[0]).attr('data-body');
+        $body.className = $($newContent[0]).attr('data-body') || 'home  pace-done';
         $container.html($newContent);
         firePageVerticalSlider();
       }
