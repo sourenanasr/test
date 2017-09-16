@@ -93,7 +93,7 @@ const setLoadingIndicatorPositionAndSize = (firstLoading) => {
 
     $iinsideLndicator.css({
       width:  parseInt(indicator.width),
-      height: parseInt(indicator.height),
+      height: parseInt(indicator.width),
       top:    parseInt(indicator.top),
       left:   parseInt(indicator.left)
     });
