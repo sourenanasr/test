@@ -80,8 +80,6 @@ const setLoadingIndicatorPositionAndSize = (firstLoading) => {
     var $svgIndicator = $('.loading-indicator');
   }
 
-  console.log('hi', $svgIndicator)
-
   if ($svgIndicator.length) {
     var indicator     = $svgIndicator[0].getBoundingClientRect();
 
