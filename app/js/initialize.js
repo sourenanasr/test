@@ -69,22 +69,33 @@ const setBackgroungHeight = () => {
     var extraSize = windowSize.h - currentH;
     $main.setAttribute("style", "height: " + (extraSize + mainSize.h) + "px");
     setLoadingIndicatorPositionAndSize();
+    setLoadingIndicatorPositionAndSize(true);
   }
 }
 
-const setLoadingIndicatorPositionAndSize = () => {
-  var $svgIndicator = $('.loading-indicator');
+const setLoadingIndicatorPositionAndSize = (firstLoading) => {
+  if (firstLoading) {
+    var $svgIndicator = $('.blink-animation');
+  } else {
+    var $svgIndicator = $('.loading-indicator');
+  }
+
+  console.log('hi', $svgIndicator)
 
   if ($svgIndicator.length) {
     var indicator     = $svgIndicator[0].getBoundingClientRect();
 
-    var $iinsideLndicator = $('.inside-loading');
+    if (firstLoading) {
+      var $iinsideLndicator = $('.ripple');
+    } else {
+      var $iinsideLndicator = $('.inside-loading');
+    }
 
     $iinsideLndicator.css({
-      width:  indicator.width,
-      height: indicator.height,
-      top:    indicator.top,
-      left:   indicator.left
+      width:  parseInt(indicator.width),
+      height: parseInt(indicator.height),
+      top:    parseInt(indicator.top),
+      left:   parseInt(indicator.left)
     });
   }
 }

@@ -1,1 +1,416 @@
-!function(){"use strict";var e="undefined"==typeof global?self:global;if("function"!=typeof e.require){var t={},n={},i={},o={}.hasOwnProperty,r=/^\.\.?(\/|$)/,l=function(e,t){for(var n,i=[],o=(r.test(t)?e+"/"+t:t).split("/"),l=0,d=o.length;l<d;l++)n=o[l],".."===n?i.pop():"."!==n&&""!==n&&i.push(n);return i.join("/")},d=function(e){return e.split("/").slice(0,-1).join("/")},a=function(t){return function(n){var i=l(d(t),n);return e.require(i,t)}},u=function(e,t){var i=w&&w.createHot(e),o={id:e,exports:{},hot:i};return n[e]=o,t(o.exports,a(e),o),o.exports},s=function(e){return i[e]?s(i[e]):e},c=function(e,t){return s(l(d(e),t))},g=function(e,i){null==i&&(i="/");var r=s(e);if(o.call(n,r))return n[r].exports;if(o.call(t,r))return u(r,t[r]);throw new Error("Cannot find module '"+e+"' from '"+i+"'")};g.alias=function(e,t){i[t]=e};var h=/\.[^.\/]+$/,f=/\/index(\.[^\/]+)?$/,m=function(e){if(h.test(e)){var t=e.replace(h,"");o.call(i,t)&&i[t].replace(h,"")!==t+"/index"||(i[t]=e)}if(f.test(e)){var n=e.replace(f,"");o.call(i,n)||(i[n]=e)}};g.register=g.define=function(e,i){if(e&&"object"==typeof e)for(var r in e)o.call(e,r)&&g.register(r,e[r]);else t[e]=i,delete n[e],m(e)},g.list=function(){var e=[];for(var n in t)o.call(t,n)&&e.push(n);return e};var w=e._hmr&&new e._hmr(c,g,t,n);g._cache=n,g.hmr=w&&w.wrap,g.brunch=!0,e.require=g}}(),function(){"undefined"==typeof window?this:window;require.register("js/general/MousePosition.js",function(e,t,n){"use strict";function i(e){e=e||window.event;var t=e.pageX,n=e.pageY;return void 0===t&&(t=e.clientX+document.body.scrollLeft+document.documentElement.scrollLeft,n=e.clientY+document.body.scrollTop+document.documentElement.scrollTop),{pageX:t,pageY:n}}Object.defineProperty(e,"__esModule",{value:!0}),e.handlerMousePosition=i}),require.register("js/general/Throttle.js",function(e,t,n){"use strict";function i(e,t,n){t||(t=250);var i,o;return function(){var r=n||this,l=+new Date,d=arguments;i&&l<i+t?(clearTimeout(o),o=setTimeout(function(){i=l,e.apply(r,d)},t)):(i=l,e.apply(r,d))}}Object.defineProperty(e,"__esModule",{value:!0}),e.throttle=i}),require.register("js/general/Window.js",function(e,t,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var i=function(){return window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth},o=function(){return window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight},r=function(e){return e.clientWidth},l=function(e){return e.clientHeight};e.getWindowWidth=i,e.getWindowHeight=o,e.getElementWidth=r,e.getElementHeight=l}),require.register("js/initialize.js",function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{"default":e}}var o=t("./general/Window.js"),r=t("./general/Throttle.js"),l=t("smoothstate"),d=(i(l),t("fullpage.js")),a=(i(d),document.getElementsByTagName("body")[0]),u=document.getElementById("main"),s=document.getElementById("header"),c=document.getElementById("footer"),g=(document.getElementsByClassName("flex--main")[0],{w:(0,o.getWindowWidth)(),h:(0,o.getWindowHeight)()}),h={w:(0,o.getElementWidth)(u),h:(0,o.getElementHeight)(u)},f={w:(0,o.getElementWidth)(s),h:(0,o.getElementHeight)(s)},m={w:(0,o.getElementWidth)(c),h:(0,o.getElementHeight)(c)};document.addEventListener("DOMContentLoaded",function(){console.log("initialized");var e=$("body");g={w:(0,o.getWindowWidth)(),h:(0,o.getWindowHeight)()},h={w:(0,o.getElementWidth)(u),h:(0,o.getElementHeight)(u)},f={w:(0,o.getElementWidth)(s),h:(0,o.getElementHeight)(s)},m={w:(0,o.getElementWidth)(c),h:(0,o.getElementHeight)(c)},p(),w(),v(),$('a[href="#demo"]').on("click",function(t){t.preventDefault(),e.hasClass("is-openLb")?e.removeClass("is-openLb"):e.addClass("is-openLb")})}),window.addEventListener("resize",(0,r.throttle)(function(e){g.w=(0,o.getWindowWidth)(),g.h=(0,o.getWindowHeight)(),w()},100));var w=function(){var e=h.h;if(e<g.h){var t=g.h-e;u.setAttribute("style","height: "+(t+h.h)+"px"),p()}},p=function(){var e=$(".loading-indicator");if(e.length){var t=e[0].getBoundingClientRect(),n=$(".inside-loading");n.css({width:t.width,height:t.height,top:t.top,left:t.left})}},v=function(){$("#fullpage").fullpage({verticalCentered:!1})};$(function(){var e=$("body"),t=$(".main").smoothState({prefetch:!1,cacheLength:2,onStart:{duration:1e3,render:function(n){e.addClass("is-exiting"),e.addClass("is-showing-inside-loading"),t.restartCSSAnimations()}},onReady:{duration:0,render:function(t,n){e.removeClass("is-exiting"),e.removeClass("is-showing-inside-loading"),a.className=$(n[0]).attr("data-body"),t.html(n),v()}}}).data("smoothState");window.svgClickHandle=function(e){t.load(e)}})}),require.register("___globals___",function(e,t,n){window.jQuery=t("jquery"),window.$=t("jquery"),window.smoothstate=t("smoothstate")})}(),require("___globals___"),require("js/initialize");
+(function() {
+  'use strict';
+
+  var globals = typeof global === 'undefined' ? self : global;
+  if (typeof globals.require === 'function') return;
+
+  var modules = {};
+  var cache = {};
+  var aliases = {};
+  var has = {}.hasOwnProperty;
+
+  var expRe = /^\.\.?(\/|$)/;
+  var expand = function(root, name) {
+    var results = [], part;
+    var parts = (expRe.test(name) ? root + '/' + name : name).split('/');
+    for (var i = 0, length = parts.length; i < length; i++) {
+      part = parts[i];
+      if (part === '..') {
+        results.pop();
+      } else if (part !== '.' && part !== '') {
+        results.push(part);
+      }
+    }
+    return results.join('/');
+  };
+
+  var dirname = function(path) {
+    return path.split('/').slice(0, -1).join('/');
+  };
+
+  var localRequire = function(path) {
+    return function expanded(name) {
+      var absolute = expand(dirname(path), name);
+      return globals.require(absolute, path);
+    };
+  };
+
+  var initModule = function(name, definition) {
+    var hot = hmr && hmr.createHot(name);
+    var module = {id: name, exports: {}, hot: hot};
+    cache[name] = module;
+    definition(module.exports, localRequire(name), module);
+    return module.exports;
+  };
+
+  var expandAlias = function(name) {
+    return aliases[name] ? expandAlias(aliases[name]) : name;
+  };
+
+  var _resolve = function(name, dep) {
+    return expandAlias(expand(dirname(name), dep));
+  };
+
+  var require = function(name, loaderPath) {
+    if (loaderPath == null) loaderPath = '/';
+    var path = expandAlias(name);
+
+    if (has.call(cache, path)) return cache[path].exports;
+    if (has.call(modules, path)) return initModule(path, modules[path]);
+
+    throw new Error("Cannot find module '" + name + "' from '" + loaderPath + "'");
+  };
+
+  require.alias = function(from, to) {
+    aliases[to] = from;
+  };
+
+  var extRe = /\.[^.\/]+$/;
+  var indexRe = /\/index(\.[^\/]+)?$/;
+  var addExtensions = function(bundle) {
+    if (extRe.test(bundle)) {
+      var alias = bundle.replace(extRe, '');
+      if (!has.call(aliases, alias) || aliases[alias].replace(extRe, '') === alias + '/index') {
+        aliases[alias] = bundle;
+      }
+    }
+
+    if (indexRe.test(bundle)) {
+      var iAlias = bundle.replace(indexRe, '');
+      if (!has.call(aliases, iAlias)) {
+        aliases[iAlias] = bundle;
+      }
+    }
+  };
+
+  require.register = require.define = function(bundle, fn) {
+    if (bundle && typeof bundle === 'object') {
+      for (var key in bundle) {
+        if (has.call(bundle, key)) {
+          require.register(key, bundle[key]);
+        }
+      }
+    } else {
+      modules[bundle] = fn;
+      delete cache[bundle];
+      addExtensions(bundle);
+    }
+  };
+
+  require.list = function() {
+    var list = [];
+    for (var item in modules) {
+      if (has.call(modules, item)) {
+        list.push(item);
+      }
+    }
+    return list;
+  };
+
+  var hmr = globals._hmr && new globals._hmr(_resolve, require, modules, cache);
+  require._cache = cache;
+  require.hmr = hmr && hmr.wrap;
+  require.brunch = true;
+  globals.require = require;
+})();
+
+(function() {
+var global = typeof window === 'undefined' ? this : window;
+var __makeRelativeRequire = function(require, mappings, pref) {
+  var none = {};
+  var tryReq = function(name, pref) {
+    var val;
+    try {
+      val = require(pref + '/node_modules/' + name);
+      return val;
+    } catch (e) {
+      if (e.toString().indexOf('Cannot find module') === -1) {
+        throw e;
+      }
+
+      if (pref.indexOf('node_modules') !== -1) {
+        var s = pref.split('/');
+        var i = s.lastIndexOf('node_modules');
+        var newPref = s.slice(0, i).join('/');
+        return tryReq(name, newPref);
+      }
+    }
+    return none;
+  };
+  return function(name) {
+    if (name in mappings) name = mappings[name];
+    if (!name) return;
+    if (name[0] !== '.' && pref) {
+      var val = tryReq(name, pref);
+      if (val !== none) return val;
+    }
+    return require(name);
+  }
+};
+require.register("js/general/MousePosition.js", function(exports, require, module) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+// https://plainjs.com/javascript/events/getting-the-current-mouse-position-16/
+function handlerMousePosition(e) {
+    e = e || window.event;
+
+    var pageX = e.pageX;
+    var pageY = e.pageY;
+
+    // IE 8
+    if (pageX === undefined) {
+        pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    return { pageX: pageX, pageY: pageY };
+}
+
+exports.handlerMousePosition = handlerMousePosition;
+
+});
+
+require.register("js/general/Throttle.js", function(exports, require, module) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+// throttle
+// https://remysharp.com/2010/07/21/throttling-function-calls
+function throttle(fn, threshhold, scope) {
+  threshhold || (threshhold = 250);
+  var last, deferTimer;
+  return function () {
+    var context = scope || this;
+
+    var now = +new Date(),
+        args = arguments;
+    if (last && now < last + threshhold) {
+      // hold on to it
+      clearTimeout(deferTimer);
+      deferTimer = setTimeout(function () {
+        last = now;
+        fn.apply(context, args);
+      }, threshhold);
+    } else {
+      last = now;
+      fn.apply(context, args);
+    }
+  };
+}
+
+exports.throttle = throttle;
+
+});
+
+require.register("js/general/Window.js", function(exports, require, module) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+                            value: true
+});
+// Get Window Width
+var getWindowWidth = function getWindowWidth() {
+                            return window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+};
+
+// Get Window Height
+var getWindowHeight = function getWindowHeight() {
+                            return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+};
+
+// Get Element Width
+var getElementWidth = function getElementWidth(el) {
+                            return el.clientWidth;
+};
+
+// Get Element Height
+var getElementHeight = function getElementHeight(el) {
+                            return el.clientHeight;
+};
+
+exports.getWindowWidth = getWindowWidth;
+exports.getWindowHeight = getWindowHeight;
+exports.getElementWidth = getElementWidth;
+exports.getElementHeight = getElementHeight;
+
+});
+
+require.register("js/initialize.js", function(exports, require, module) {
+'use strict';
+
+var _Window = require('./general/Window.js');
+
+var _Throttle = require('./general/Throttle.js');
+
+var _smoothstate = require('smoothstate');
+
+var _smoothstate2 = _interopRequireDefault(_smoothstate);
+
+var _fullpage = require('fullpage.js');
+
+var _fullpage2 = _interopRequireDefault(_fullpage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Elements
+var $body = document.getElementsByTagName("body")[0];
+var $main = document.getElementById("main");
+var $header = document.getElementById("header");
+var $footer = document.getElementById("footer");
+var $mainWraper = document.getElementsByClassName("flex--main")[0];
+
+// General Variables
+var windowSize = { w: (0, _Window.getWindowWidth)(), h: (0, _Window.getWindowHeight)() };
+var mainSize = { w: (0, _Window.getElementWidth)($main), h: (0, _Window.getElementHeight)($main) };
+var headerSize = { w: (0, _Window.getElementWidth)($header), h: (0, _Window.getElementHeight)($header) };
+var footerSize = { w: (0, _Window.getElementWidth)($footer), h: (0, _Window.getElementHeight)($footer) };
+
+//
+document.addEventListener('DOMContentLoaded', function () {
+  console.log('initialized');
+
+  // Initialize Variables
+  var $$body = $('body');
+  windowSize = { w: (0, _Window.getWindowWidth)(), h: (0, _Window.getWindowHeight)() };
+  mainSize = { w: (0, _Window.getElementWidth)($main), h: (0, _Window.getElementHeight)($main) };
+  headerSize = { w: (0, _Window.getElementWidth)($header), h: (0, _Window.getElementHeight)($header) };
+  footerSize = { w: (0, _Window.getElementWidth)($footer), h: (0, _Window.getElementHeight)($footer) };
+
+  // Loading
+  setLoadingIndicatorPositionAndSize();
+
+  // Initialize Settings
+  setBackgroungHeight();
+
+  // Load Plugins
+  firePageVerticalSlider();
+
+  // Event Listeners
+  $('a[href="#demo"]').on('click', function (e) {
+    e.preventDefault();
+
+    if ($$body.hasClass('is-openLb')) {
+      $$body.removeClass('is-openLb');
+    } else {
+      $$body.addClass('is-openLb');
+    }
+  });
+});
+
+//
+window.addEventListener('resize', (0, _Throttle.throttle)(function (event) {
+  windowSize.w = (0, _Window.getWindowWidth)();
+  windowSize.h = (0, _Window.getWindowHeight)();
+  setBackgroungHeight();
+}, 100));
+
+/*
+ *
+ */
+var setBackgroungHeight = function setBackgroungHeight() {
+  var currentH = mainSize.h;
+
+  if (currentH < windowSize.h) {
+    var extraSize = windowSize.h - currentH;
+    $main.setAttribute("style", "height: " + (extraSize + mainSize.h) + "px");
+    setLoadingIndicatorPositionAndSize();
+    setLoadingIndicatorPositionAndSize(true);
+  }
+};
+
+var setLoadingIndicatorPositionAndSize = function setLoadingIndicatorPositionAndSize(firstLoading) {
+  if (firstLoading) {
+    var $svgIndicator = $('.blink-animation');
+  } else {
+    var $svgIndicator = $('.loading-indicator');
+  }
+
+  console.log('hi', $svgIndicator);
+
+  if ($svgIndicator.length) {
+    var indicator = $svgIndicator[0].getBoundingClientRect();
+
+    if (firstLoading) {
+      var $iinsideLndicator = $('.ripple');
+    } else {
+      var $iinsideLndicator = $('.inside-loading');
+    }
+
+    $iinsideLndicator.css({
+      width: parseInt(indicator.width),
+      height: parseInt(indicator.height),
+      top: parseInt(indicator.top),
+      left: parseInt(indicator.left)
+    });
+  }
+};
+
+var firePageVerticalSlider = function firePageVerticalSlider() {
+  // https://github.com/alvarotrigo/fullPage.js
+  $('#fullpage').fullpage({
+    // scrollingSpeed: 1000,
+    verticalCentered: false
+    // fixedElements: '#header'
+  });
+};
+
+// Handle Loading
+$(function () {
+  'use strict';
+
+  // var
+
+  var $$body = $('body');
+
+  // init
+  var smoothState = $('.main').smoothState({
+    prefetch: false,
+    cacheLength: 2,
+    onStart: {
+      duration: 1000,
+      render: function render($container) {
+        $$body.addClass('is-exiting');
+        $$body.addClass('is-showing-inside-loading');
+        smoothState.restartCSSAnimations();
+      }
+    },
+    onReady: {
+      duration: 0,
+      render: function render($container, $newContent) {
+        $$body.removeClass('is-exiting');
+        $$body.removeClass('is-showing-inside-loading');
+        // $$body.addClass('pace-done');
+        $body.className = $($newContent[0]).attr('data-body');
+        $container.html($newContent);
+        firePageVerticalSlider();
+      }
+    }
+  }).data('smoothState');
+
+  // evnts
+  window.svgClickHandle = function (path) {
+    smoothState.load(path);
+    // console.log(path);
+  };
+});
+
+});
+
+require.register("___globals___", function(exports, require, module) {
+  
+
+// Auto-loaded modules from config.npm.globals.
+window.jQuery = require("jquery");
+window["$"] = require("jquery");
+window.smoothstate = require("smoothstate");
+
+
+});})();require('___globals___');
+
+require('js/initialize');
+//# sourceMappingURL=app.js.map

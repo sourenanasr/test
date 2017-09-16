@@ -747,7 +747,7 @@ a {
   bottom: 0;
   left: 0;
   z-index: 1000;
-  transition: all .2s ease-in .35s;
+  transition: all .15s ease-in .4s;
 
   @at-root .home & {
     display: flex;
@@ -786,12 +786,29 @@ a {
     }
   }
 
+  .ripple {
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    transform-origin: center center;
+    transition: opacity .1s ease-in, transform .4s ease-in;
+    z-index: 15;
+    opacity: 0;
+
+    // transform: scale(2);
+  }
+
   @at-root .pace-done & {
     opacity: 0;
     visibility: hidden;
 
+    .ripple {
+      opacity: 1;
+      transform: scale(50) translateX(10%);
+    }
+
     .logo-ing {
-      transform: translate(-100%, -50%);
+      // transform: translate(-100%, -50%);
     }
   }
 }
