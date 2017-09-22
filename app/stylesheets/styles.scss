@@ -765,7 +765,7 @@ a {
   display: none;
   align-items: center;
   justify-content: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
   position: fixed;
   top: 0;
   right: 0;
@@ -778,19 +778,35 @@ a {
     display: flex;
   }
 
-  span {
-    -webkit-animation: flash linear 1s infinite;
-    animation: flash linear 1s infinite;
+  .slogan {
+    height: 40px;
+    line-height: 40px;
+    // background: rgba(0, 0, 0, .1);
+    overflow: hidden;
+    // animation: flash 2.5s infinite;
+
+    span {
+      // background: rgba(0, 0, 0, .1);
+      // animation: flash 3.5s infinite, flashText 9s steps(2) infinite;
+      // animation: flashText 9s steps(2) infinite;
+      animation: flash 1.5s infinite;
+      // font-size: 85%;
+      display: block;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      transform: translateY(0em);
+    }
   }
 
-  @-webkit-keyframes flash {
-    0%   { opacity: 1;  }
-    50%  { opacity: .1; }
-    100% { opacity: 1;  }
+  @keyframes flashText {
+    0%   { transform: translateY(0em); }
+    50%  { transform: translateY(-2.6em); }
   }
+
   @keyframes flash {
     0%   { opacity: 1;  }
-    50%  { opacity: .1; }
+    50%  { opacity: 0; }
     100% { opacity: 1;  }
   }
 
@@ -799,7 +815,7 @@ a {
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translate(0, -50%);
+    transform: translate(0, -30%);
     max-width: 20%;
     transition: transform .25s ease-in;
 
