@@ -559,6 +559,37 @@ a {
   }
 }
 
+.contact {
+  display: flex;
+  justify-content: space-between;
+
+  h4 {
+    font-size: 150%;
+  }
+
+  p {
+    &:not(:last-child) {
+      margin-bottom: 1.5em;
+    }
+  }
+
+  @at-root #{&}__details {
+    align-self: flex-end;
+    width: 80%;
+  }
+
+  @at-root #{&}__map {
+    a {
+      display: block;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+}
+
 .footer {
   background: var(--color-body-backgroud);
   // background: rgba(255, 255, 255, .3);

@@ -971,6 +971,22 @@ a {
     position: relative;
     margin-left: -6rem; }
 
+.contact {
+  display: flex;
+  justify-content: space-between; }
+  .contact h4 {
+    font-size: 150%; }
+  .contact p:not(:last-child) {
+    margin-bottom: 1.5em; }
+  .contact__details {
+    align-self: flex-end;
+    width: 80%; }
+  .contact__map a {
+    display: block; }
+  .contact__map img {
+    display: block;
+    max-width: 100%; }
+
 .footer {
   background: var(--color-body-backgroud);
   font-size: var(--font-size-small);
