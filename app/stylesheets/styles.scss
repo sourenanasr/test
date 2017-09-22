@@ -450,9 +450,7 @@ a {
 .page {
   @at-root .main {
     article.section {
-      // background: rgba(0, 0, 0, .1);
-      // border: 2px solid red;
-      // height: 60vh;
+      $debag: false;
 
       &.fp-section {
         transition: opacity .2s ease-out;
@@ -465,15 +463,22 @@ a {
       }
 
       @media (min-width: 53.75rem) {
-        // width: 70%;
+        width: 70%;
+        margin: 0 auto;
+      }
+
+      .flex {
+        @if $debag {
+          background: rgba(0, 0, 29, .1);
+        }
+        align-items: stretch;
       }
 
       .image {
+        flex-shrink: 1;
         position: relative;
-        margin-right: -50px;
-        width: 50%;
-        float: left;
         overflow: hidden;
+        width: 74%;
 
         &::after {
           background: #fff;
@@ -493,26 +498,27 @@ a {
         }
       }
 
+      .description {
+        @if $debag {
+          background: rgba(0, 0, 29, .1);
+        }
+        display: flex;
+        flex-shrink: 3;
+        flex-direction: column;
+        // justify-content: space-around;
+        justify-content: space-between;
+      }
+
       header {
-        position: relative;
-        padding: 1px;
+        padding-bottom: 1em;
 
         h3 {
           font-size: 2em;
           font-weight: bold;
-          margin-top: 2em;
-          // margin-bottom: 2rem;
         }
       }
 
       .entry {
-        background: rgba(255, 255, 255, .8);
-        float: left;
-        border-radius: 1em;
-        position: relative;
-        width: 60%;
-        // min-height: 280px;
-
         p {
           font-size: 1.1em;
 
@@ -523,30 +529,30 @@ a {
       }
 
       &.section--w-image {
+        $space-left: -6rem;
+        $entry-padding: 2rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
+        margin: 0;
+
+        header {
+          position: relative;
+          margin-left: $space-left + $entry-padding;
+
+          h3 {
+            margin-top: 2em;
+            transform: translateY(-25%);
+          }
+        }
 
         .entry {
-          padding: 2em;
-          margin-top: 1em;
-          margin-left: -2em;
-          width: 55%;
-          // backdrop-filter: blur(5px);
-        }
-      }
-
-      &.section--w-image-mirror {
-        .image {
-          margin-right: 0;
-          margin-left: -50px;
-          float: right;
-
-          &::after {
-            right: auto;
-            left: -50px;
-            transform: rotate(18deg) scale(1.5);
-          }
+          background: rgba(255, 255, 255, .8);
+          border-radius: 1em 1em 0 0;
+          padding: $entry-padding $entry-padding $entry-padding - 1 $entry-padding;
+          position: relative;
+          margin-left: $space-left;
         }
       }
     }
