@@ -381,11 +381,6 @@ a {
       stroke-dasharray: 500;
       stroke-dashoffset: 500;
     }
-
-    // &:hover {
-    //   .text     { transform: matrix(1, 0, 0, 1, 180, 20); }
-    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 35); }
-    // }
   }
 
   .g2 {
@@ -400,11 +395,6 @@ a {
       stroke-dasharray: 465;
       stroke-dashoffset: 465;
     }
-
-    // &:hover {
-    //   .text     { transform: matrix(1, 0, 0, 1, 180, 85); }
-    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 98); }
-    // }
   }
 
   .g3 {
@@ -420,11 +410,6 @@ a {
       stroke-dasharray: 465;
       stroke-dashoffset: 465;
     }
-
-    // &:hover {
-    //   .text     { transform: matrix(1, 0, 0, 1, 180, 155); }
-    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 168); }
-    // }
   }
 
   .g4 {
@@ -439,11 +424,6 @@ a {
       stroke-dasharray: 500;
       stroke-dashoffset: 500;
     }
-
-    // &:hover {
-    //   .text     { transform: matrix(1, 0, 0, 1, 180, 217); }
-    //   .text-sub { transform: matrix(1, 0, 0, 1, 180, 231); }
-    // }
   }
 }
 
@@ -506,7 +486,9 @@ a {
         flex-shrink: 3;
         flex-direction: column;
         // justify-content: space-around;
-        justify-content: space-between;
+        // justify-content: space-between;
+        align-items: center;
+        justify-content: center;
       }
 
       header {
@@ -529,7 +511,7 @@ a {
       }
 
       &.section--w-image {
-        $space-left: -6rem;
+        $space-left: -8rem;
         $entry-padding: 2rem;
         display: flex;
         align-items: center;
@@ -539,18 +521,20 @@ a {
 
         header {
           position: relative;
-          margin-left: $space-left + $entry-padding;
+          margin-bottom: 0;
+          padding-bottom: .5em;;
+          text-align: center;
 
           h3 {
-            margin-top: 2em;
-            transform: translateY(-25%);
+            font-size: 1.75em;
+            font-weight: 500;
           }
         }
 
         .entry {
           background: rgba(255, 255, 255, .8);
-          border-radius: 1em 1em 0 0;
-          padding: $entry-padding $entry-padding $entry-padding - 1 $entry-padding;
+          border-radius: 1em;
+          padding: $entry-padding;
           position: relative;
           margin-left: $space-left;
         }
