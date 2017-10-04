@@ -24,11 +24,7 @@ Thumbs.db
 node_modules/
 
 # Brunch output folder.
-
+public
 # me
 _PSD/
 *.map
-<<<<<<< HEAD
-
-=======
->>>>>>> 3a9810072828ee2d9b47f49c6a2e3c76f7f5d85b

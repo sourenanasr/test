@@ -1,26 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="an AR platform."/>
-    <meta name="author" content="Arman Taherian" />
-    <title>Gemvision</title>
+{% extends "./_layout.html" %}
 
-    <meta property="og:title" content="Gemvision" />
-    <meta property="og:description" content="an AR platform." />
-    <!-- best size for Facebook: 1300 X 630 px -->
-    <meta property="og:image" content="https://github.com/filter1/brunch-on-speed/thumbnail.jpg" />
-    <meta property="og:url" content="https://github.com/filter1/brunch-on-speed">
-    <meta property="og:site_name" content="Gemvision" />
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:creator" content="@armantaherian" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/app.css" />
-
-    
+{% block header %}
   <script type="text/javascript">
     paceOptions = {
       elements: false,
@@ -33,32 +13,13 @@
   </script>
   <script src="assets/vendor/pace/pace.min.js"></script>
   <style type="text/css">.pace .pace-activity { display: none; }</style>
+{% endblock %}
 
-  </head>
+{% block title %}Gemvision{% endblock %}
 
-  <body class="home" id="body">
-    <header id="header" class="header">
-      <div class="container">
-        <div class="flex">
-          <div class="header__logo">
-            <h1><a href="home.html">Gemvision</a></h1>
-            <h2>Argumented Reality Platform</h2>
-          </div>
+{% block body-class %}home{% endblock %}
 
-          <nav class="header__nav">
-            <ul class="list-unstyled flex">
-              <li class="active"><a href="/" title="Manufacture">Manufacture</a></li>
-              <li><a href="/maritime" title="Maritime">Maritime</a></li>
-              <li><a href="/health" title="Health">Health</a></li>
-              <li class="demo"><a href="#demo" title="Request Demo">Request Demo</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
-
-    <main id="main" class="main flex flex--main">
-      
+{% block content %}
   <section class="section gem">
     <svg viewbox="0 0 142 119" xmlns="http://www.w3.org/2000/svg">
       <path d="m128.6,52.6l-23.4,-23.6l-53.2,0l-23.4,23.6l-28.6,0l0,12.4l28.1,0l50.5,50.6l50,-50.6l11.4,0c1,0 1.8,-0.8 1.8,-1.8l0,-8.8c0,-1 -0.8,-1.8 -1.8,-1.8l-11.4,0zm-71.8,-11.7l43.3,0l18.2,18.2l-39.8,39.7l-39.8,-39.7l18.1,-18.2z" fill="#fff"/>
@@ -130,61 +91,9 @@
       </g>
     </svg>
   </section>
+{% endblock %}
 
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="container">
-        <div class="flex">
-          <nav class="footer__nav">
-            <ul class="list-unstyled flex">
-              <li>Gemvision (C) 2016</li>
-              <li><a href="about.html" title="About">About</a></li>
-              <li><a href="contact.html" title="Contact">Contact</a></li>
-              <li><a href="news.html" title="Newsletter">Newsletter</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </footer>
-
-    <div class="lb">
-      <div class="lb__wrap">
-        <a href="#demo" class="lb__close">x</a>
-
-        <div class="lb__content">
-          <h3 class="lb__title">Title: Request Demo</h3>
-
-          <div class="form">
-            <div class="input">
-              <input type="text" name="" value="" placeholder="Company Name">
-            </div>
-
-            <div class="input">
-              <input type="text" name="" value="" placeholder="Surname">
-            </div>
-
-            <div class="input">
-              <input type="email" name="" value="" placeholder="Mail Address">
-            </div>
-
-            <div class="input">
-              <input type="text" name="" value="" placeholder="Phone Number">
-            </div>
-
-            <div class="input">
-              <input type="text" name="" value="" placeholder="Additional Informations (optional)">
-            </div>
-
-            <div class="input submit">
-              <input type="submit" name="" value="Send">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
+{% block bodyend %}
   <div class="first-loading">
     <div class="logo-ing">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 265.7 173.47">
@@ -202,11 +111,4 @@
   </div>
 
   <div class="inside-loading"></div>
-
-
-    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="assets/vendor/smoothstate/jquery.smoothstate.min.js"></script>
-    <script src="assets/vendor/fullpage.js/dist/jquery.fullpage.min.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
-</html>
+{% endblock %}

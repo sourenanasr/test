@@ -1,0 +1,25 @@
+{
+  "name": "gemvision-website",
+  "description": "GemVision Website",
+  "main": "server.js",
+  "authors": [
+    "Arman Taherian"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/AR-Development/gemvision-website",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "dist/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.2.1",
+    "fullpage.js": "^2.9.4",
+    "smoothstate": "^0.7.2",
+    "PACE": "pace#^1.0.2"
+  }
+}
