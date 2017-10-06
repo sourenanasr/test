@@ -67,7 +67,7 @@ const setBackgroungHeight = () => {
 
   if (currentH < windowSize.h) {
     var extraSize = windowSize.h - currentH;
-    $main.setAttribute("style", "height: " + (extraSize + mainSize.h) + "px");
+    //$main.setAttribute("style", "height: " + (extraSize + mainSize.h) + "px");
     setLoadingIndicatorPositionAndSize();
     setLoadingIndicatorPositionAndSize(true);
   }
