@@ -7,9 +7,8 @@
   "repository": "https://github.com/AR-Development/gemvision-website",
   "main": "server.js",
   "scripts": {
-    "dev": "LOGGY_STACKS=true brunch watch --port 3333 --server",
     "start": "node server.js",
-    "build": "brunch build --production"
+    "build": "gulp build"
   },
   "engines": {
     "node": ">=0.12"
