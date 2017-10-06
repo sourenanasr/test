@@ -65,11 +65,16 @@ window.addEventListener('resize', throttle(function(event) {
 const setBackgroungHeight = () => {
   var currentH = mainSize.h;
 
-  if (currentH < windowSize.h) {
+  if (currentH < windowSize.h - 150) {
     var extraSize = windowSize.h - currentH;
-    //$main.setAttribute("style", "height: " + (extraSize + mainSize.h) + "px");
+    $main.classList.add('flex--theme');
+    $main.classList.remove('bigframe');
+    $main.setAttribute("style", "height: " + (extraSize + mainSize.h) + "px");
     setLoadingIndicatorPositionAndSize();
     setLoadingIndicatorPositionAndSize(true);
+  } else {
+    $main.classList.remove('flex--theme');
+    $main.classList.add('bigframe');
   }
 }
 

@@ -23,10 +23,11 @@
     
   </head>
 
-  <body class="page about body--light" id="body">
+  <body class="flex flex-column justify-between page about body--light" id="body">
+
     <header id="header" class="header">
       <div class="container">
-        <div class="flex">
+        <div class="flex--theme">
           <div class="header__logo">
             <h1><a href="home.html">Gemvision</a></h1>
             <h2>Argumented Reality Platform</h2>
@@ -41,10 +42,12 @@
       </div>
     </header>
 
-    <main id="main" class="main flex flex--main">
+    <div class="empty"></div>
+
+    <main id="main" class="main flex--theme flex--main">
       
     <div class="container px3">
-        <div class="clearfix">
+        <div class="clearfix mt2">
           <div class="sm-col sm-col-3 ">
             <h2 class="h1 bold">About us</h2>
           </div>
@@ -57,13 +60,22 @@
             <h2 class="h1 bold">Our team</h2>
           </div>
           <div class="sm-col sm-col-9 clearfix">
-            <div class="sm-col sm-col-6 border">
+            <div class="sm-col sm-col-5 profile">
                 <img src="assets/images/mark-smith.jpg" alt="Mark Smith">
-                Gem Vision is an independent software vendor building augmented reality solutions. Started in 2015 we created solutions for different sectors like; Maritime, Healthcare, industry, storage and transhipment, etc.
+                <span class="title">Founder</span>
+                <span class="name">Mark Smith</span>
+                <p class="desc">
+                    Our team exists of professionals in different areas. Software developers, machine learning experts, UX designers and commercial driven specialists are all working at Gem Vision with the same goal. Introducing augmented reality solutions using smart devices to the market and make sure clients get a great experience while adopting this technology.
+                </p>
             </div>
-            <div class="sm-col sm-col-6 border">
-                <img src="assets/images/soheil-jahansahi.jpg" alt="Mark Smith">
-                Gem Vision is an independent software vendor building augmented reality solutions. Started in 2015 we created solutions for different sectors like; Maritime, Healthcare, industry, storage and transhipment, etc.
+            <div class="sm-col sm-col-1">&nbsp;</div>
+            <div class="sm-col sm-col-5 profile">
+                <img src="assets/images/soheil-jahanshahi.jpg" alt="Soheil Jahanshahi">
+                <span class="title">Co-Founder</span>
+                <span class="name">Soheil Jahanshahi</span>
+                <p class="desc">
+                    Gem Vision is an independent software vendor building augmented reality solutions. Started in 2015 we created solutions for different sectors like; Maritime, Healthcare, industry, storage and transhipment, etc.
+                </p>
             </div>
           </div>
         </div>
@@ -71,16 +83,18 @@
 
     </main>
 
+    <div class="empty"></div>
+
     <footer id="footer" class="footer">
       <div class="container">
-        <div class="flex">
+        <div class="flex--theme">
           <nav class="footer__nav">
             <ul class="list-unstyled flex">
               <li>Gemvision (C) 2016</li>
               <li><a href="about.html" title="About">About</a></li>
               <li><a href="contact.html" title="Contact">Contact</a></li>
               <li><a href="news.html" title="Newsletter">Newsletter</a></li>
-              <li><a href="pressrelease.html" title="Press Release">Press Release</a></li>
+              <!-- <li><a href="pressrelease.html" title="Press Release">Press Release</a></li> -->
             </ul>
           </nav>
         </div>

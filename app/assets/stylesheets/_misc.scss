@@ -62,7 +62,7 @@ a {
   margin: 0 auto;
 }
 
-.flex {
+.flex--theme {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -183,6 +183,7 @@ a {
 
 .main {
   position: relative;
+  overflow: visible;
 
   &.flex--main {
     @extend .container;
@@ -190,6 +191,10 @@ a {
     overflow: hidden;
 
     .section {}
+  }
+  &.bigframe {
+    padding: 150px 0;
+    overflow: visible;
   }
 
   .gem {
@@ -536,6 +541,35 @@ a {
           position: relative;
           margin-left: $space-left;
         }
+      }
+    }
+  }
+
+  /* About us page styles */
+  &.about {
+    .profile {
+      img {
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+        border-radius: 50%;
+        box-shadow: 1px 1px 6px #aaa;
+      }
+      span.title, span.name {
+        display: block;
+        text-align: center;
+      }
+      span.title {
+        font-weight: bold;
+        margin-top:10px;
+      }
+      span.name {
+        color: gray;
+      }
+      p.desc {
+        margin-top:10px;
+        font-size: 0.85em;
+        text-align: justify;
       }
     }
   }
