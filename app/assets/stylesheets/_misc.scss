@@ -57,7 +57,6 @@ a {
 
 .container {
   width: 90%;
-  min-width: 800px;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -545,6 +544,16 @@ a {
     }
   }
 
+  /* Press Release page styles */
+  &.press {
+    .press-item {
+      .thumb {
+        width:100%;
+        border-radius: 15px;
+      }
+    }
+  }
+
   /* About us page styles */
   &.about {
     .profile {
@@ -613,7 +622,7 @@ a {
   line-height: 4em;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   position: fixed;
   right: 0;
@@ -887,4 +896,9 @@ a {
   15% { transform: rotateX(0deg);   }
   20% { transform: rotateX(-85deg); }
   25% { transform: rotateX(0deg);   }
+}
+
+.px5 {
+  margin-right: 5em;
+  margin-left: 5em;
 }

@@ -65,7 +65,7 @@ window.addEventListener('resize', throttle(function(event) {
 const setBackgroungHeight = () => {
   var currentH = mainSize.h;
 
-  if (currentH < windowSize.h - 150) {
+  if (currentH < windowSize.h - 150 && !$main.classList.contains('bigframe')) {
     var extraSize = windowSize.h - currentH;
     $main.classList.add('flex--theme');
     $main.classList.remove('bigframe');
