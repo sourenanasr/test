@@ -15,3 +15,6 @@ $ gulp build
 ```bash
 $ node run start
 ```
+
+## Heruko Installation
+Do nothing, just deploy and enjoy it
