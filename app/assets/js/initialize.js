@@ -3,8 +3,6 @@
 import { getWindowWidth, getWindowHeight,
          getElementWidth, getElementHeight } from './general/Window.js';
 import { throttle} from './general/Throttle.js';
-import smoothstate from 'smoothstate';
-import fullpage from 'fullpage.js';
 
 // Elements
 const $body       = document.getElementsByTagName("body")[0];
