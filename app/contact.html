@@ -14,9 +14,8 @@
               <h4>Address</h4>
 
               <p>
-                AR-DEVELOPMENT BV<br />
-                Puntegaalstraat 85<br />
-                3024 EB Rotterdam<br />
+                Molengraaffsingel<br />
+                12, 2629 JD Delft<br />
                 The Netherlands
               </p>
 
@@ -25,13 +24,26 @@
             </div>
 
             <div class="contact__map">
-              <a href="#" title="Map">
-                <img src="assets/images/contact.jpg" alt="Address on map">
-              </a>
+              <div id="googleMap" style="width:500px;height:350px;"></div>
             </div>
           </div>
         </article>
       </div>
 {% endblock %}
 
-{% block bodyend %}{% endblock %}
+{% block bodyend %}
+<script>
+  function myMap() {
+  var myCenter = new google.maps.LatLng(51.9933448, 4.3868694);
+  var mapProp= {
+      center: myCenter,
+      zoom:15,
+  };
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  var marker = new google.maps.Marker({position: myCenter});
+  marker.setMap(map);
+  }
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdbaBe_4KQ5omBRwMUycJt1EerpzrjUQ&callback=myMap"></script>
+{% endblock %}

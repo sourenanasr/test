@@ -21,8 +21,12 @@ gulp.task("script", function(){
 });
 
 gulp.task("statics", function(){
-  return gulp.src("./app/assets/images/**/*.*")
+  var images = gulp.src("./app/assets/images/**/*.*")
       .pipe(gulp.dest(paths.dist+"/assets/images/"));
+  var docs = gulp.src("./app/assets/docs/**/*.*")
+          .pipe(gulp.dest(paths.dist+"/assets/docs/"));
+
+  return [images, docs];
 });
 
 gulp.task("stylesheet", function() {
