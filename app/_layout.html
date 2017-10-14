@@ -1,3 +1,12 @@
+{% macro headerNav(activeitem) %}
+<nav class="header__nav">
+  <ul class="list-unstyled flex">
+    <li class="{% if activeitem=='oursolutions' %}active{% endif %}"><a href="/oursolutions.html" title="Our Solutions">Our Solutions</a></li>
+    <li class="demo"><a href="#demo" title="Request Demo">Request Demo</a></li>
+  </ul>
+</nav>
+{% endmacro %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,18 +33,15 @@
   </head>
 
   <body class="{% block body-class %}flex flex-column justify-between {% endblock %}" id="body">
-
     <header id="header" class="header container">
       <div class="header__logo">
         <h1><a href="home.html">Gemvision</a></h1>
         <h2>Augmented Reality Platform</h2>
       </div>
 
-      <nav class="header__nav">
-        <ul class="list-unstyled flex">
-          <li class="demo"><a href="#demo" title="Request Demo">Request Demo</a></li>
-        </ul>
-      </nav>
+      {% block header-nav %}
+      {{ headerNav("")}}
+      {% endblock %}
     </header>
 
     <div class="empty"></div>
@@ -93,12 +99,12 @@
         </div>
       </div>
     </div>
-
-    {% block bodyend %}{% endblock %}
-
     <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="assets/vendor/smoothstate/jquery.smoothState.min.js"></script>
     <script src="assets/vendor/fullpage.js/dist/jquery.fullpage.min.js"></script>
     <script src="assets/js/app.js"></script>
+
+    {% block bodyend %}{% endblock %}
+
   </body>
 </html>

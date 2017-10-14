@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,29 +25,33 @@
     
   </head>
 
-  <body class=" flex flex-column justify-between  page news body--light" id="body">
-
+  <body class=" flex flex-column justify-between  page contact body--light" id="body">
     <header id="header" class="header container">
       <div class="header__logo">
         <h1><a href="home.html">Gemvision</a></h1>
         <h2>Augmented Reality Platform</h2>
       </div>
 
-      <nav class="header__nav">
-        <ul class="list-unstyled flex">
-          <li class="demo"><a href="#demo" title="Request Demo">Request Demo</a></li>
-        </ul>
-      </nav>
+      
+      
+<nav class="header__nav">
+  <ul class="list-unstyled flex">
+    <li class=""><a href="/oursolutions.html" title="Our Solutions">Our Solutions</a></li>
+    <li class="demo"><a href="#demo" title="Request Demo">Request Demo</a></li>
+  </ul>
+</nav>
+
+      
     </header>
 
     <div class="empty"></div>
 
     <main id="main" class="main flex--theme flex--main ">
       
-      <div class="container" data-body="page news body--light">
+      <div data-body="page contact body--light" class="container">
         <article class="section">
-          <div class="contact">
-            <div class="contact__details">
+          <div class="contact clearfix">
+            <div class="col-4 contact__details">
               <h4>Address</h4>
 
               <p>
@@ -58,8 +64,8 @@
               <p>0031 (0)88 126 0126</p>
             </div>
 
-            <div class="contact__map">
-              <div id="googleMap" style="width:500px;height:350px;"></div>
+            <div class="col-8 contact__map">
+              <div id="googleMap" style="width:100%;height:350px;"></div>
             </div>
           </div>
         </article>
@@ -116,6 +122,10 @@
         </div>
       </div>
     </div>
+    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="assets/vendor/smoothstate/jquery.smoothState.min.js"></script>
+    <script src="assets/vendor/fullpage.js/dist/jquery.fullpage.min.js"></script>
+    <script src="assets/js/app.js"></script>
 
     
 <script>
@@ -134,9 +144,5 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtdbaBe_4KQ5omBRwMUycJt1EerpzrjUQ&callback=myMap"></script>
 
 
-    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="assets/vendor/smoothstate/jquery.smoothState.min.js"></script>
-    <script src="assets/vendor/fullpage.js/dist/jquery.fullpage.min.js"></script>
-    <script src="assets/js/app.js"></script>
   </body>
 </html>

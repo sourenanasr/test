@@ -61,10 +61,8 @@ window.addEventListener('resize', throttle(function(event) {
  *
  */
 const setBackgroungHeight = () => {
-  var currentH = mainSize.h;
-
-  if (currentH < windowSize.h - 150 && !$main.classList.contains('bigframe')) {
-    var extraSize = windowSize.h - currentH;
+  if (!$main.classList.contains('bigframe')) {
+    var extraSize = windowSize.h - mainSize.h;
     $main.classList.add('flex--theme');
     $main.classList.remove('bigframe');
     $main.setAttribute("style", "height: " + (extraSize + mainSize.h) + "px");
@@ -106,6 +104,7 @@ const firePageVerticalSlider = () => {
   $('#fullpage').fullpage({
     // scrollingSpeed: 1000,
     verticalCentered: false,
+    menu: '#full-page-menu'
     // fixedElements: '#header'
   });
 }
