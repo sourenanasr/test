@@ -75,7 +75,9 @@
   $(function(){
     var listElm = $('.solution-list');
 
+    setTimeout(function(){
     bindReadmore();
+    }, 100);
 
     $(window).resize(function() {
       if ($(window).outerWidth()<832){
@@ -95,7 +97,7 @@
       var height = listElm.outerHeight();
       listElm.data('readmore',true);
       listElm.addClass('closed');
-      $(listElm, 'a.readmore').click(function(){
+      $('a.readmore', listElm).click(function(){
         listElm.toggleClass("closed");
         if (listElm.hasClass('closed')) {
           listElm.css({ height: 630 })
