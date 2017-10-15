@@ -977,3 +977,21 @@ a {
   margin-right: 5em;
   margin-left: 5em;
 }
+
+.message {
+  padding: 2rem;
+  border: solid 1px;
+  border-radius: 10px;
+  font-weight: 500;
+
+  &.success {
+    border-color: green;
+    background: #c6ecc6;
+    color: #1e5a1e;
+  }
+  &.danger {
+    border-color: maroon;
+    background: #ecc6c6;
+    color: maroon;
+  }
+}

@@ -106,31 +106,33 @@
         <div class="lb__content">
           <h3 class="lb__title">Title: Request Demo</h3>
 
-          <div class="form">
+          <form class="form" id="frmRequestDemo">
             <div class="input">
-              <input type="text" name="" value="" placeholder="Company Name">
+              <input type="text" name="companyName" required placeholder="Company Name">
             </div>
 
             <div class="input">
-              <input type="text" name="" value="" placeholder="Surname">
+              <input type="text" name="surName" required placeholder="Surname">
             </div>
 
             <div class="input">
-              <input type="email" name="" value="" placeholder="Mail Address">
+              <input type="email" name="email" required placeholder="Mail Address">
             </div>
 
             <div class="input">
-              <input type="text" name="" value="" placeholder="Phone Number">
+              <input type="text" name="phoneNumber" required placeholder="Phone Number">
             </div>
 
             <div class="input">
-              <textarea rows="3" placeholder="Additional Information (optional)"></textarea>
+              <textarea rows="3" name="additionalInfo" placeholder="Additional Information (optional)"></textarea>
             </div>
 
             <div class="input submit">
               <input type="submit" name="" value="Send">
             </div>
-          </div>
+          </form>
+
+          <div class="message display-none" id="message"></div>
         </div>
       </div>
     </div>

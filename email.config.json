@@ -1,0 +1,6 @@
+{
+  "service": "Gmail",
+  "username": "m.smit@gemvision.io",
+  "password": "yourpasswordhere!",
+  "template": "<p><b>Company Name</b>: {{company-name}}</p><p><b>Surname</b>: {{sur-name}}</p><p><b>Email Address</b>: {{email}}</p><p><b>Phone Number</b>: {{phone-number}}</p><p><b>Additional Info</b>: {{additional-info}}</p>"
+}

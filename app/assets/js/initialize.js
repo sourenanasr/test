@@ -37,16 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load Plugins
   firePageVerticalSlider();
 
-  // Event Listeners
-  $('a[href="#demo"]').on('click', e => {
-    e.preventDefault();
-
-    if ($$body.hasClass('is-openLb')) {
-      $$body.removeClass('is-openLb');
-    } else {
-      $$body.addClass('is-openLb');
-    }
-  });
+  bindRequestDemoHandler($$body);
 });
 
 //
@@ -148,3 +139,42 @@ $(() => {
     // console.log(path);
   }
 });
+function bindRequestDemoHandler($$body) {
+    // Event Listeners
+    $('a[href="#demo"]').on('click', e => {
+        e.preventDefault();
+        if ($$body.hasClass('is-openLb')) {
+            $$body.removeClass('is-openLb');
+        }
+        else {
+            $$body.addClass('is-openLb');
+        }
+    });
+
+    $("#frmRequestDemo").submit(function(e){
+      var form = this;
+      $('input[type="submit"]').attr("disabled",true).val("Sending... (please wait)");
+      var data = $(form).serialize();
+      $.post('email', data).always(function (result) {
+        $(form).hide();
+        if (result.successful) {
+          successMessage();
+        } else {
+          dangerMessage();
+        }
+      });
+
+      function successMessage() {
+        $('#message').removeClass('display-none')
+        .addClass('success')
+        .text('Your request was sent successfully.');
+      }
+      function dangerMessage() {
+        $('#message').removeClass('display-none')
+        .addClass('danger')
+        .text('There was a problem in sending your request, please try again later.');
+      }
+      e.preventDefault();
+    })
+}
+
