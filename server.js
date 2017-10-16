@@ -27,8 +27,8 @@ app.post('/email', function(req, res) {
                                     .replace("{{phone-number}}", req.body.phoneNumber)
                                     .replace("{{additional-info}}", req.body.additionalInfo);
   var mailOptions = {
-      from: emailConfig.username, // sender address
-      to: emailConfig.username, // list of receivers
+      from: emailConfig.sender, // sender address
+      to: emailConfig.reciever, // list of receivers
       subject: 'Demo Request', // Subject line
       html: message // You can choose to send an HTML body instead
   };

@@ -1,6 +1,8 @@
 {
   "service": "Gmail",
-  "username": "m.smit@gemvision.io",
-  "password": "yourpasswordhere!",
+  "username": "web-mail@ar-development.nl",
+  "password": "GemVision@17",
+  "sender"  : "web-mail@ar-development.nl",
+  "reciever":  "m.smit@gemvision.io",
   "template": "<p><b>Company Name</b>: {{company-name}}</p><p><b>Surname</b>: {{sur-name}}</p><p><b>Email Address</b>: {{email}}</p><p><b>Phone Number</b>: {{phone-number}}</p><p><b>Additional Info</b>: {{additional-info}}</p>"
 }
