@@ -1,4 +1,5 @@
-
+$dark-logo-url: url(../images/logo.png);
+$light-logo-url: url(../images/logo-dark.png);
 // Variables
 :root {
   --color-text: #fff;
@@ -9,7 +10,6 @@
   --color-link-hover: #f0f0f0;
   --color-colorful: #1cbbb4;
   --font-size-small: 0.95em;
-  --logo-url: url(../images/logo.png);
 
   @at-root .body--light {
     --color-text: #121212;
@@ -18,7 +18,6 @@
     --color-drawer-background: rgba(0,0,0,0.8);
     --color-link: #212121;
     --color-link-hover: #3c3c3c;
-    --logo-url: url(../images/logo-dark.png);
   }
 }
 
@@ -88,6 +87,14 @@ a {
 .clearfix:after { clear: both; }
 .clearfix { *zoom: 1; }
 
+.body--light {
+  .header {
+    h1 a {
+      background-image: $light-logo-url;
+    }
+  }
+}
+
 .header {
   background: var(--color-body-backgroud);
   // background: rgba(255, 255, 255, .1);
@@ -116,7 +123,7 @@ a {
 
     h1 {
       a {
-        background: var(--logo-url) no-repeat left center;
+        background: $dark-logo-url no-repeat left center;
         background-size: contain;
         display: block;
         width: 14rem;
@@ -846,7 +853,7 @@ a {
   cursor: pointer;
   .bar1, .bar2, .bar3 {
     width: 35px;
-    height: 5px;
+    height: 4px;
     background-color: var(--color-text);
     margin: 6px 0;
     transition: 0.4s;
@@ -866,7 +873,7 @@ a {
     }
     .bar3 {
       -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
-      transform: rotate(45deg) translate(-8px, -8px) ;
+      transform: rotate(45deg) translate(-8px, -6px) ;
     }
   }
 }
@@ -877,19 +884,19 @@ a {
   left: 100%;
   width: 100%;
   height: 100%;
-  transition: left 0.4s;
+  transition: all 0.4s;
   background-color: var(--color-drawer-background);
   z-index: 10;
   text-align: center;
   padding-top: 30%;
   font-size: 3rem;
-  // display: none;
+  opacity: 0;
   * {
     color: var(--color-body-backgroud);
   }
   &.active {
-    // display: block;
     left: 0;
+    opacity: 1;
   }
 }
 
