@@ -846,6 +846,17 @@ a {
   }
 }
 
+.flags {
+  position: absolute;
+  top: 6px;
+  right: 0;
+  img {
+    width: 20px;
+    display: inline-block;
+    margin-left: 5px;
+  }
+}
+
 .burgur {
   position: fixed;
   top: 12px;
@@ -1083,6 +1094,10 @@ a {
 
   .header {
       padding-top:1em;
+      .flags {
+        top: 12px;
+        right: 50px;
+      }
   }
   .header__logo h2 {
       line-height: 2em;
