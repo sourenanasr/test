@@ -4,6 +4,7 @@
   --color-text: #fff;
   --color-text-light: #c4c4c4;
   --color-body-backgroud: #121212;
+  --color-drawer-background: rgba(255,255,255,0.8);
   --color-link: #696969;
   --color-link-hover: #f0f0f0;
   --color-colorful: #1cbbb4;
@@ -14,6 +15,7 @@
     --color-text: #121212;
     --color-text-light: #4b4b4b;
     --color-body-backgroud: #fff;
+    --color-drawer-background: rgba(0,0,0,0.8);
     --color-link: #212121;
     --color-link-hover: #3c3c3c;
     --logo-url: url(../images/logo-dark.png);
@@ -115,10 +117,10 @@ a {
     h1 {
       a {
         background: var(--logo-url) no-repeat left center;
-        background-size: cover;
+        background-size: contain;
         display: block;
-        width: 220px;
-        height: 31px;
+        width: 14rem;
+        height: 2rem;
         text-indent: -9999em;
       }
     }
@@ -809,10 +811,10 @@ a {
       display: block;
       font-size: .9em;
       font-family: Arial, Helvetica, sans-serif;
-      line-height: 50px;
+      line-height: 3.1rem;
       padding: 0 1.3em;
       width: 100%;
-      height: 50px;
+      height: 31.5 rem;
     }
 
     textarea {
@@ -832,6 +834,62 @@ a {
         opacity: .8;
       }
     }
+  }
+}
+
+.burgur {
+  position: fixed;
+  top: 12px;
+  right: 15px;
+  display: none;
+  z-index: 12;
+  cursor: pointer;
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--color-text);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  &.active {
+    .bar1, .bar2, .bar3 {
+      background-color: var(--color-body-backgroud);
+    }
+
+    .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+      transform: rotate(-45deg) translate(-9px, 6px) ;
+    }
+    .bar2 {
+      opacity: 0;
+    }
+    .bar3 {
+      -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+      transform: rotate(45deg) translate(-8px, -8px) ;
+    }
+  }
+}
+
+.drawer {
+  position: fixed;
+  top:0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  transition: left 0.4s;
+  background-color: var(--color-drawer-background);
+  z-index: 10;
+  text-align: center;
+  padding-top: 30%;
+  font-size: 3rem;
+  // display: none;
+  * {
+    color: var(--color-body-backgroud);
+  }
+  &.active {
+    // display: block;
+    left: 0;
   }
 }
 
@@ -993,5 +1051,39 @@ a {
     border-color: maroon;
     background: #ecc6c6;
     color: maroon;
+  }
+}
+
+/*
+* Responsive codes
+*/
+@media (max-width:40rem) {
+  html {
+      font-size: 12px;
+  }
+  .first-loading .slogan {
+      padding-left: 21%;
+      padding-right: 1rem;
+      height: inherit;
+      overflow: visible;
+  }
+
+  .header__nav li:not(.burgur) {
+      display:none;
+  }
+
+  .header {
+      padding-top:1em;
+  }
+  .header__logo h2 {
+      line-height: 2em;
+  }
+
+  .main.bigframe {
+    padding: 80px 0;
+  }
+
+  .burgur {
+    display: block;
   }
 }

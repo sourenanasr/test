@@ -52,7 +52,7 @@
 
     <div class="empty"></div>
 
-    <footer id="footer" class="footer container">
+    <footer id="footer" class="footer container xs-hide">
       <nav class="footer__nav">
         <ul class="list-unstyled flex">
           <li>Gemvision (C) 2016</li>
@@ -107,6 +107,8 @@
     <script src="assets/js/app.js"></script>
 
     {% block bodyend %}{% endblock %}
+
+    {% include "./_drawer.html" %}
 
   </body>
 </html>

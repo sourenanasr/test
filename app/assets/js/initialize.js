@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   firePageVerticalSlider();
 
   bindRequestDemoHandler($$body);
+
+  bindDrawerHandler();
 });
 
 //
@@ -178,3 +180,9 @@ function bindRequestDemoHandler($$body) {
     })
 }
 
+function bindDrawerHandler() {
+  $('.burgur').click(function(){
+    $(this).toggleClass('active');
+    $('.drawer').toggleClass('active');
+  });
+}
