@@ -514,7 +514,9 @@ a {
       .entry {
         p {
           font-size: 1.1em;
-
+          @media (max-width: 60rem) {
+            font-size: .9em;
+          }
           &:not(:last-child) {
             margin-bottom: 1em;
           }
@@ -522,7 +524,7 @@ a {
       }
 
       &.section--w-image {
-        $space-left: -8rem;
+
         $entry-padding: 2rem;
         display: flex;
         align-items: center;
@@ -547,7 +549,7 @@ a {
           border-radius: 1em;
           padding: $entry-padding;
           position: relative;
-          margin-left: $space-left;
+          margin-left: -12rem;
         }
       }
     }
@@ -1093,4 +1095,33 @@ a {
   .burgur {
     display: block;
   }
+
+  .main article.section {
+
+    .flex {
+      display: block;
+      .description .entry {
+        margin:0px;
+        padding:0;
+        padding-top:1rem;
+      }
+    }
+
+    .image {
+      width:100%;
+      height: 12rem;
+      &::after {
+        display: none;
+      }
+      img {
+        margin-top:-20%;
+      }
+    }
+
+    &.section--w-image header h3 {
+      font-size: 1.5em;
+    }
+
+  }
+
 }
