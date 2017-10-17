@@ -1,0 +1,33 @@
+{% extends "./_layout.html" %}
+{% block header %}{% endblock %}
+{% block title %}Gemvision | Our Solutions > Industry{% endblock %}
+{% block body-class %} {% parent %} bigframe page solutions solution-item body--light{% endblock %}
+{% block main-class %} {% parent %} bigframe {% endblock%}
+
+{% block header-nav %}{{ headerNav("oursolutions")}}{% endblock %}
+
+{% block content %}
+<div class="container" data-body="page body--light">
+  <h1 class="h1 inline">Our Solutions</h1><h1 class="h1 inline"> > Industry</h1>
+  <div class="clearfix mt1 solution-list">
+    <section class="py2 solution">
+      <div class="toping">
+        <img src="assets/images/images/FL074875.jpg" class="fit" alt="">
+        <h2>Industry</h2>
+      </div>
+      <div class="mt2 desc">
+        <p>
+          One of the biggest challenges in this big sector is getting the right people, the right information and the right knowledge at the right time on a certain place.
+          <br/>
+          Getting the right technical knowhow into your company is a challenge everyone has. Young people wants to sit behind a desk and technical specialists are scarce. Besides that older employees with a lot of knowledge are leaving the company or are because of injuries not fit enough to do their daily work. It would be great to have the knowledge of an older engineer with the knowledge he has available for a junior engineer in the field, seeing what the junior sees and offer the knowledge needed.
+          <br/>
+          Gem Vision offers a live videoconference in a smart glass so the senior can see what the junior does and give him feedback using live drawing technology that allows the senior to draw and show the junior which steps to take. The junior has his hands free, which makes him work safe and efficient.
+          With our Gem Vision object recognition tool we will be able to recognise objects, error codes and product codes. This technique makes sure that human errors are reduced to a minimum, because a computer makes no mistakes. With this information we can provide a step by step instruction in text or 3d models to show the junior how to fix the problems.
+          <br/>
+          Gem Vision makes sure the right people with the right information and the right knowledge are available at the right time at a certain place.
+        </p>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

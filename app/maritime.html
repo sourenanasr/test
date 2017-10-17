@@ -1,0 +1,32 @@
+{% extends "./_layout.html" %}
+{% block header %}{% endblock %}
+{% block title %}Gemvision | Our Solutions > Maritime{% endblock %}
+{% block body-class %} {% parent %} bigframe page solutions solution-item body--light{% endblock %}
+{% block main-class %} {% parent %} bigframe {% endblock%}
+
+{% block header-nav %}{{ headerNav("oursolutions")}}{% endblock %}
+
+{% block content %}
+<div class="container" data-body="page body--light">
+  <h1 class="h1 inline">Our Solutions</h1><h1 class="h1 inline"> > Maritime</h1>
+  <div class="clearfix mt1 solution-list">
+    <section class="py2 solution">
+      <div class="toping">
+        <img src="assets/images/images/FL074828.jpg" class="fit" alt="">
+        <h2>Maritime</h2>
+      </div>
+      <div class="mt2 desc">
+        <p>
+          First time fix rates, travel expenses, having data available at the right time and connectivity are big issues in the maritime industry. Using the Gem Vision Platform we will increase the fix rates, decrease travel expenses, make the right data available at the right time and make sure that connectivity is not an issue using our connection kit.<br/>
+          Using this technology the biggest concern of our clients in this sector is the connectivity. We tested our platform / videoconferencing tool with success on a 128 kb bandwidth, but with our connection kits we make sure we have internet available anywhere and anytime. Besides that our platform works party offline, so a lot of features will be available without an internet connection:<br/>
+          4G case light, 4G case medium, 4G case heavy, Satellite case.<br/>
+
+          Other issues are travel costs which are mostly created by first time fix rates and the right data at the right time. Gem Vision offers a platform that connects with database of customers, showing the right data and solutions that is needed on a certain moment. Within our map we show where the engineers are at work, so you can easily plan new assignments. The videoconferencing tool we created gives you the possibility to draw in this live connection and give orders and instructions from behind your desk.<br/>
+
+          Gem Vision creates a first time fix rate of 100%, reduces travel costs and makes sure data and support are available at the right time at the right moment.
+      </p>
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "./_layout.html" %}
+{% block header %}{% endblock %}
+{% block title %}Gemvision | Our Solutions > Health{% endblock %}
+{% block body-class %} {% parent %} bigframe page solutions solution-item body--light{% endblock %}
+{% block main-class %} {% parent %} bigframe {% endblock%}
+
+{% block header-nav %}{{ headerNav("oursolutions")}}{% endblock %}
+
+{% block content %}
+<div class="container" data-body="page body--light">
+  <h1 class="h1 inline">Our Solutions</h1><h1 class="h1 inline"> > Health</h1>
+  <div class="clearfix mt1 solution-list">
+    <section class="py2 solution">
+      <div class="toping">
+        <img src="assets/images/images/FL074920.jpg" class="fit" alt="">
+        <h2>Health</h2>
+      </div>
+      <div class="mt2 desc">
+        <p>
+            Imagine a patient doesn’t have to travel to a hospital with time, expenses and pain included.<br/>
+
+            Gem Vision offers a platform that runs on premise within a hospital so all data is secured. It allows specialists to do telemedicine appointments. It will give them the possibility to assist nurses remotely, make notes in the live videoconference and save progress of a patient recovery by taking and saving pictures or videos in a secure location. Besides that Gem Vision creates workflows with 3D images that will guide the nurse in doing her job.<br/>
+
+            Gem Vision creates an efficient way of working, is cost reducing, but above all; makes the life of a patient nicer.
+        </p>
+        <!-- <a href="#more" class="readmore">Read more...</a> -->
+      </div>
+    </section>
+  </div>
+</div>
+{% endblock %}

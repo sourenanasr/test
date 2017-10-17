@@ -111,7 +111,7 @@ $(() => {
   const $$body = $('body');
 
   // init
-  const smoothState = $('.main').smoothState({
+  const smoothState = $('.home .main').smoothState({
     prefetch: false,
     cacheLength: 2,
     onStart: {
@@ -141,6 +141,7 @@ $(() => {
     // console.log(path);
   }
 });
+
 function bindRequestDemoHandler($$body) {
     // Event Listeners
     $('a[href="#demo"]').on('click', e => {
