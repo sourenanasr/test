@@ -1142,3 +1142,18 @@ a {
   }
 
 }
+
+
+@media (max-width: 23rem) {
+  .main article.section {
+    .image {
+      height: 6rem;
+    }
+    .description .entry p {
+      font-size: .8em;
+    }
+    &.section--w-image header h3 {
+      font-size: 1.2em;
+    }
+  }
+}
