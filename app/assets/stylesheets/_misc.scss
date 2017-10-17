@@ -470,7 +470,9 @@ a {
         position: relative;
         overflow: hidden;
         width: 74%;
-
+        @media (max-height: 40rem) and (min-width: 60rem) {
+          width: 60%;
+        }
         &::after {
           background: #fff;
           content: '';
