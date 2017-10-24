@@ -3,6 +3,7 @@
 import { getWindowWidth, getWindowHeight,
          getElementWidth, getElementHeight } from './general/Window.js';
 import { throttle} from './general/Throttle.js';
+import { Browser } from "./general/Browser";
 
 // Elements
 const $body       = document.getElementsByTagName("body")[0];
@@ -40,6 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
   bindRequestDemoHandler($$body);
 
   bindDrawerHandler();
+
+  attachBrowserClass();
 });
 
 //
@@ -186,4 +189,9 @@ function bindDrawerHandler() {
     $(this).toggleClass('active');
     $('.drawer').toggleClass('active');
   });
+}
+
+function attachBrowserClass() {
+  var browserClass = Browser.getBrowserClass();
+  $('body').addClass(browserClass);
 }

@@ -438,6 +438,18 @@ a {
   }
 }
 
+.firefox {
+  .main {
+    .article {
+      .text:hover {
+        & ~ .c-g {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}
+
 .page {
   @at-root .main {
     article.section {
@@ -690,17 +702,8 @@ a {
   }
 
   @at-root #{&}__details {
-    align-self: flex-end;
-  }
-
-  @at-root #{&}__map {
-    a {
-      display: block;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
+    @media (max-width: 60rem) {
+      text-align: center;
     }
   }
 }
@@ -1079,13 +1082,25 @@ a {
   }
 }
 
+#googleMap {
+  width:100%;
+  height:350px;
+}
+
 /*
 * Responsive codes
 */
 @media (max-width:40rem) {
+
   html {
       font-size: 12px;
   }
+
+  #googleMap {
+    width:100%;
+    height:220px;
+  }
+
   .first-loading .slogan {
       padding-left: 21%;
       padding-right: 1rem;
