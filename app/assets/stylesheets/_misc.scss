@@ -1,43 +1,85 @@
 $dark-logo-url: url(../images/logo.png);
 $light-logo-url: url(../images/logo-dark.png);
-// Variables
-:root {
-  --color-text: #fff;
-  --color-text-light: #c4c4c4;
-  --color-body-backgroud: #121212;
-  --color-drawer-background: rgba(255,255,255,0.8);
-  --color-link: #696969;
-  --color-link-hover: #f0f0f0;
-  --color-colorful: #1cbbb4;
-  --font-size-small: 0.95em;
+$color-colorful: #1cbbb4;
+$font-size-small: 0.95em;
+$color-text: #fff;
+$color-text-l: #121212;
+$color-text-light: #c4c4c4;
+$color-text-light-l: #4b4b4b;
+$color-body-backgroud: #121212;
+$color-body-backgroud-l: #fff;
+$color-drawer-background: rgba(255,255,255,0.8);
+$color-drawer-background-l: rgba(0,0,0,0.8);
+$color-link: #696969;
+$color-link-l: #212121;
+$color-link-hover: #f0f0f0;
+$color-link-hover-l: #3c3c3c;
 
-  @at-root .body--light {
-    --color-text: #121212;
-    --color-text-light: #4b4b4b;
-    --color-body-backgroud: #fff;
-    --color-drawer-background: rgba(0,0,0,0.8);
-    --color-link: #212121;
-    --color-link-hover: #3c3c3c;
+
+body.body--light {
+
+  color: $color-text-l;
+  background: $color-body-backgroud-l;
+
+  a {
+    color: $color-link-l;
+    &:hover {
+      color: $color-link-hover-l;
+    }
+  }
+
+  .drawer {
+    background-color: $color-drawer-background-l;
+    * {
+      color: $color-body-backgroud-l;
+    }
+  }
+  .burgur {
+    .bar1, .bar2, .bar3 {
+      background-color: $color-text-l;
+    }
+
+    &.active {
+      .bar1, .bar2, .bar3 {
+        background-color: $color-body-backgroud-l;
+      }
+    }
+  }
+
+  .footer {
+    background: $color-body-backgroud-l;
+  }
+
+  .header {
+    background: $color-body-backgroud-l;
+    .header__logo {
+      h2 {
+        color: $color-text-light-l;
+      }
+    }
+    .header__nav {
+      li {
+        &.active {
+          a {
+            color: $color-link-hover-l;
+            border-bottom-color: $color-link-hover-l;
+          }
+        }
+      }
+    }
   }
 }
 
 //
 body {
-  background: var(--color-body-backgroud);
-  color: var(--color-text);
+  background: $color-body-backgroud;
+  color: $color-text;
   // font-family: 'Ubuntu', sans-serif;
   font-family: 'Raleway', sans-serif;
   font-size: 1.125em;
   font-weight: 300;
   line-height: 1.618;
   position: relative;
-
-  // transition: all .15s linear;
-
-  @at-root .body--light {
-    // background: #fff;
-    // color: #333;
-  }
 }
 
 body.is-openLb .header,
@@ -47,12 +89,12 @@ body.is-openLb .footer {
 }
 
 a {
-  color: var(--color-link);
+  color: $color-link;
   text-decoration: none;
   transition: all .15s linear;
 
   &:hover {
-    color: var(--color-link-hover);
+    color: $color-link-hover;
   }
 }
 
@@ -96,7 +138,7 @@ a {
 }
 
 .header {
-  background: var(--color-body-backgroud);
+  background: $color-body-backgroud;
   // background: rgba(255, 255, 255, .1);
   line-height: 40px;
   padding-top: 2em;
@@ -133,8 +175,8 @@ a {
     }
 
     h2 {
-      color: var(--color-text-light);
-      font-size: var(--font-size-small);
+      color: $color-text-light;
+      font-size: $font-size-small;
     }
   }
 
@@ -156,8 +198,8 @@ a {
 
       &.active {
         a {
-          color: var(--color-link-hover);
-          border-bottom-color: var(--color-link-hover);
+          color: $color-link-hover;
+          border-bottom-color: $color-link-hover;
         }
       }
 
@@ -176,7 +218,7 @@ a {
 
     .demo {
       a {
-        background: var(--color-colorful);
+        background: $color-colorful;
         color: #fff;
         border-radius: 20px;
         padding: 0 1em;
@@ -709,9 +751,9 @@ a {
 }
 
 .footer {
-  background: var(--color-body-backgroud);
+  background: $color-body-backgroud;
   // background: rgba(255, 255, 255, .3);
-  font-size: var(--font-size-small);
+  font-size: $font-size-small;
   line-height: 4em;
   display: flex;
   flex-direction: row;
@@ -729,9 +771,6 @@ a {
 
   @at-root .pace-done & { transform: translateY(0%); }
 
-  a {
-    color: var(--color-link);
-  }
 
   @at-root #{&}__designer {
     // background: rgba(255, 255, 255, .1);
@@ -875,14 +914,14 @@ a {
   .bar1, .bar2, .bar3 {
     width: 35px;
     height: 4px;
-    background-color: var(--color-text);
+    background-color: $color-text;
     margin: 6px 0;
     transition: 0.4s;
   }
 
   &.active {
     .bar1, .bar2, .bar3 {
-      background-color: var(--color-body-backgroud);
+      background-color: $color-body-backgroud;
     }
 
     .bar1 {
@@ -906,14 +945,14 @@ a {
   width: 100%;
   height: 100%;
   transition: all 0.4s;
-  background-color: var(--color-drawer-background);
+  background-color: $color-drawer-background;
   z-index: 10;
   text-align: center;
   padding-top: 30%;
   font-size: 3rem;
   opacity: 0;
   * {
-    color: var(--color-body-backgroud);
+    color: $color-body-backgroud;
   }
   &.active {
     left: 0;
