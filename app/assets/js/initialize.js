@@ -134,6 +134,7 @@ $(() => {
         $body.className = $($newContent[0]).attr('data-body') || 'home  pace-done';
         $container.html($newContent);
         firePageVerticalSlider();
+        attachBrowserClass();
       }
     }
   }).data('smoothState');

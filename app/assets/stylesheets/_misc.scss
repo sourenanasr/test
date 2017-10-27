@@ -80,6 +80,13 @@ body {
   font-weight: 300;
   line-height: 1.618;
   position: relative;
+
+  &.ie10, &.ie11 {
+    overflow: hidden;
+  }
+  &.bigframe {
+    overflow: auto;
+  }
 }
 
 body.is-openLb .header,

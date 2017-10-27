@@ -4,9 +4,9 @@
 
 {% block title %}Gemvision | Press Release{% endblock %}
 
-{% block body-class %}page press body--light{% endblock %}
+{% block body-class %} {% parent %} bigframe page press body--light{% endblock %}
 
-{% block main-class %}bigframe{% endblock %}
+{% block main-class %} {% parent %} bigframe {% endblock%}
 
 {% block content %}
     <div class="container">
