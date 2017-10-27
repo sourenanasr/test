@@ -96,6 +96,7 @@ const setLoadingIndicatorPositionAndSize = (firstLoading) => {
 }
 
 const firePageVerticalSlider = () => {
+  $('html').removeClass('fp-enabled');
   // https://github.com/alvarotrigo/fullPage.js
   $('#fullpage').fullpage({
     // scrollingSpeed: 1000,
