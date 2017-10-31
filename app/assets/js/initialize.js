@@ -142,7 +142,12 @@ $(() => {
 
   // evnts
   window.svgClickHandle = function(path) {
-    smoothState.load(path);
+    // smoothState.load(path);
+    $$body.addClass('is-exiting');
+    $$body.addClass('is-showing-inside-loading');
+    setTimeout(function() {
+      window.location.href = path;
+    },500);
     // console.log(path);
   }
 });
