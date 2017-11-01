@@ -115,6 +115,8 @@ body {
     }
   }
 
+
+
   &.bigframe {
     overflow: auto;
   }
@@ -1170,6 +1172,16 @@ a {
 * Responsive codes
 */
 @media (max-width:40rem) {
+
+  .section.lines, .section.gem {
+    display: none;
+  }
+
+  .section.ie-lines {
+    display: block;
+    padding-left: 2rem;
+    width: 100%;
+  }
 
   html {
       font-size: 12px;
